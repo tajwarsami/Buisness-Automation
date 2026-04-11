@@ -15,14 +15,29 @@ import {
   hospitalErpData,
   hrPayrollData,
   smsSystemData,
-} from '@/components/products/productsData';
+} from '@/components/products/data';
+import {
+  AccountingSolutionPage,
+  DynamicAcademicErpPage,
+  DynamicAmsPage,
+  HospitalErpPage,
+  HrPayrollPage,
+  SmsSystemPage,
+} from '@/components/products/pages';
 import {
   bulkSmsServiceData,
   domainHostingData,
   mobileAppDevelopmentData,
   softwareDevelopmentData,
   webAppDevelopmentData,
-} from '@/components/services/servicesData';
+} from '@/components/services/data';
+import {
+  BulkSmsServicePage,
+  DomainHostingPage,
+  MobileAppDevelopmentPage,
+  SoftwareDevelopmentPage,
+  WebApplicationDevelopmentPage,
+} from '@/components/services/pages';
 
 export const topLevelPageKeys = {
   about: 'about',
@@ -48,12 +63,29 @@ export const productComponentData = {
   'dynamic-ams': dynamicAmsData,
 };
 
+export const productPageComponents = {
+  'dynamic-academic-erp': DynamicAcademicErpPage,
+  'hospital-erp': HospitalErpPage,
+  'accounting-solution': AccountingSolutionPage,
+  'hr-payroll': HrPayrollPage,
+  'sms-system': SmsSystemPage,
+  'dynamic-ams': DynamicAmsPage,
+};
+
 export const serviceComponentData = {
   'software-development': softwareDevelopmentData,
   'mobile-app-development': mobileAppDevelopmentData,
   'web-application-development': webAppDevelopmentData,
   'bulk-sms-service': bulkSmsServiceData,
   'domain-registration-web-hosting': domainHostingData,
+};
+
+export const servicePageComponents = {
+  'software-development': SoftwareDevelopmentPage,
+  'mobile-app-development': MobileAppDevelopmentPage,
+  'web-application-development': WebApplicationDevelopmentPage,
+  'bulk-sms-service': BulkSmsServicePage,
+  'domain-registration-web-hosting': DomainHostingPage,
 };
 
 export function getTopLevelPage(slug) {
