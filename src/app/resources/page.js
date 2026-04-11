@@ -1,13 +1,13 @@
 import RoutePageTemplate from '@/components/RoutePageTemplate';
 import { getTopLevelPage, getRelatedLinks } from '@/lib/routeData';
 
-export default function ProductsPage() {
-  const page = getTopLevelPage('products');
+export default function ResourcesPage() {
+  const page = getTopLevelPage('resources');
 
   return (
     <RoutePageTemplate
       {...page}
-      relatedLinks={getRelatedLinks('/products')}
+      relatedLinks={getRelatedLinks('/resources')}
       badgeItems={page.highlights}
     />
   );
