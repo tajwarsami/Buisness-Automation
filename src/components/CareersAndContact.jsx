@@ -170,7 +170,7 @@ export default function CareersAndContact() {
                     </div>
                     <div className="form-check">
                       <input type="checkbox" id="agree" checked={form.agree} onChange={e=>setForm({...form,agree:e.target.checked})}/>
-                      <label htmlFor="agree">I agree to receive communications from Dynamic Technosoft.</label>
+                      <label htmlFor="agree">I agree to receive communications from Automate IT Limited.</label>
                     </div>
                     <button type="submit" className="btn-primary form-submit" disabled={loading}>
                       {loading ? 'Sending...' : 'Send Message →'}
