@@ -2,27 +2,15 @@
 
 import { useEffect, useRef } from 'react';
 
-const strengths = [
-  {
-    title: 'IRD Certified ERP',
-    text: 'A trusted platform approach shaped around dependable compliance and business process clarity.',
-  },
-  {
-    title: 'One-Stop Shop',
-    text: 'Products, services, implementation, and support are handled together for smoother delivery.',
-  },
-  {
-    title: 'Long-Term Support',
-    text: 'We stay involved after deployment with issue handling, optimization, and guided follow-up.',
-  },
-  {
-    title: 'Cross-Sector Experience',
-    text: 'Education, healthcare, finance, associations, and business teams use our systems every day.',
-  },
-];
-
 export default function WhyUs() {
   const ref = useRef(null);
+
+  const strengths = [
+    { title: 'IRD Certified ERP', text: 'A trusted platform approach shaped around dependable compliance and business process clarity.' },
+    { title: 'One-Stop Shop', text: 'Products, services, implementation, and support are handled together for smoother delivery.' },
+    { title: 'Long-Term Support', text: 'We stay involved after deployment with issue handling, optimization, and guided follow-up.' },
+    { title: 'Cross-Sector Experience', text: 'Education, healthcare, finance, associations, and business teams use our systems every day.' },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {

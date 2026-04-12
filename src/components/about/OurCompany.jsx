@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { ourCompanyData as d } from './ourCompanyData';
 
-/* ─── Hero decoration ─── */
 function CompanyVisual() {
   return (
     <div className="oc-visual" aria-hidden="true">
@@ -22,7 +21,6 @@ function CompanyVisual() {
   );
 }
 
-/* ─── Pillar card ─── */
 function PillarCard({ icon, title, text }) {
   return (
     <div className="oc-pillar">
@@ -33,7 +31,6 @@ function PillarCard({ icon, title, text }) {
   );
 }
 
-/* ─── Capability block ─── */
 function CapabilityBlock({ area, items }) {
   return (
     <div className="oc-cap-block">
@@ -50,7 +47,6 @@ function CapabilityBlock({ area, items }) {
   );
 }
 
-/* ─── Why us stat ─── */
 function WhyUsStat({ stat, label, description }) {
   return (
     <div className="oc-why-stat">

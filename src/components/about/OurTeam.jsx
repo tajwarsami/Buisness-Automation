@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { ourTeamData as d } from './ourTeamData';
 
-/* ─── Department card ─── */
 function DeptCard({ name, icon, count, description, skills }) {
   return (
     <article className="ot-dept-card">
@@ -22,7 +21,6 @@ function DeptCard({ name, icon, count, description, skills }) {
   );
 }
 
-/* ─── Culture value ─── */
 function CultureItem({ value, description }) {
   return (
     <div className="ot-culture-item">
@@ -35,7 +33,6 @@ function CultureItem({ value, description }) {
   );
 }
 
-/* ─── Leader card ─── */
 function LeaderCard({ name, role, bio, initials }) {
   return (
     <div className="ot-leader-card">
@@ -51,7 +48,6 @@ function LeaderCard({ name, role, bio, initials }) {
   );
 }
 
-/* ─── Main component ─── */
 export default function OurTeam() {
   const { hero, intro, departments, culture, leadership, cta } = d;
 
@@ -89,7 +85,6 @@ export default function OurTeam() {
         <div className="ot-hero-wave" />
       </section>
 
-      {/* ── Intro ── */}
       <section className="ot-section ot-intro-section">
         <div className="container ot-intro-grid">
           <div className="ot-intro-copy">
@@ -114,7 +109,6 @@ export default function OurTeam() {
         </div>
       </section>
 
-      {/* ── Departments ── */}
       <section className="ot-section ot-dept-section">
         <div className="container">
           <div className="ot-section-header">
@@ -129,7 +123,6 @@ export default function OurTeam() {
         </div>
       </section>
 
-      {/* ── Leadership ── */}
       <section className="ot-section ot-leadership-section">
         <div className="container">
           <div className="ot-section-header">
@@ -144,7 +137,6 @@ export default function OurTeam() {
         </div>
       </section>
 
-      {/* ── Culture ── */}
       <section className="ot-section ot-culture-section">
         <div className="container">
           <div className="ot-culture-grid">
@@ -164,7 +156,6 @@ export default function OurTeam() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
       <section className="ot-cta-section">
         <div className="container ot-cta-inner">
           <div className="ot-cta-copy">

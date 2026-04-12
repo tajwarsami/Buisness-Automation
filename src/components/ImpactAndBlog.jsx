@@ -42,7 +42,6 @@ export default function ImpactAndBlog() {
           <div className="home-resource-grid">
             {tutorialLinks.map((item, index) => {
               const isExternal = item.href.startsWith('http');
-
               return (
                 <Link
                   key={item.title}

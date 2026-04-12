@@ -68,10 +68,7 @@ export default function About() {
                 <div className="clients-visual-row clients-visual-row-lg" />
                 <div className="clients-visual-row clients-visual-row-md" />
                 <div className="clients-visual-grid">
-                  <span />
-                  <span />
-                  <span />
-                  <span />
+                  <span /><span /><span /><span />
                 </div>
               </div>
             </div>

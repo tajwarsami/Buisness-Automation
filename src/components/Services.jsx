@@ -67,7 +67,6 @@ export default function Services() {
           <div className="services-grid services-grid-refined">
             {serviceLinks.map((item, index) => {
               const detail = SERVICE_DETAILS[item.href];
-
               return (
                 <Link
                   key={item.href}

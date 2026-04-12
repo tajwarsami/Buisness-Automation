@@ -1,7 +1,6 @@
 'use client';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import FloatingElements from '@/components/FloatingElements';
 import ChatWidget from '@/components/ChatWidget';
 
 export default function ClientShell({ children }) {
@@ -13,7 +12,6 @@ export default function ClientShell({ children }) {
       </main>
       <Footer />
       <ChatWidget />
-      <FloatingElements />
     </>
   );
 }

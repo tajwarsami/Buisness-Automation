@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useState, useCallback } from 'react';
 import Link from 'next/link';
-import { NAV_ITEMS } from '@/data/siteContent';
 
 const PRODUCT_DETAILS = {
   '/products/dynamic-academic-erp': {
@@ -42,6 +41,9 @@ const PRODUCT_DETAILS = {
     icon: 'AMS',
   },
 };
+
+import { useEffect, useMemo, useRef } from 'react';
+import { NAV_ITEMS } from '@/data/siteContent';
 
 const tabs = ['All', 'Education', 'Healthcare', 'Finance', 'HR', 'Communication', 'Association'];
 

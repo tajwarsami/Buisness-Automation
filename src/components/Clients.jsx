@@ -60,10 +60,7 @@ export default function Clients() {
               <div className="clients-visual-row clients-visual-row-lg" />
               <div className="clients-visual-row clients-visual-row-md" />
               <div className="clients-visual-grid">
-                <span />
-                <span />
-                <span />
-                <span />
+                <span /><span /><span /><span />
               </div>
             </div>
           </div>
@@ -82,7 +79,7 @@ export default function Clients() {
         <div className="testimonials-grid testimonials-grid-refined">
           {testimonials.map((item) => (
             <article key={item.name} className="testimonial-card testimonial-card-refined animate-on-scroll">
-              <p className="testimonial-quote">“{item.quote}”</p>
+              <p className="testimonial-quote">&ldquo;{item.quote}&rdquo;</p>
               <div className="testimonial-author">
                 <div className="author-av author-av-refined">{item.name.slice(0, 1)}</div>
                 <div>
