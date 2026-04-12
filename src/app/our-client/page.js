@@ -1,8 +1,10 @@
-import RoutePageTemplate from '@/components/RoutePageTemplate';
-import { getClientPageBadges, getTopLevelPage } from '@/lib/routeData';
+import OurClientPageClient from '@/components/OurClientPageClient';
+
+export const metadata = {
+  title: 'Our Clients — Automate IT Limited',
+  description: 'Meet the 2,500+ organizations that trust Automate IT Limited for their ERP and software needs.',
+};
 
 export default function OurClientPage() {
-  const page = getTopLevelPage('our-client');
-
-  return <RoutePageTemplate {...page} relatedLinks={[]} badgeItems={getClientPageBadges()} />;
+  return <OurClientPageClient />;
 }
