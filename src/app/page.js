@@ -4,14 +4,23 @@ import Hero from '@/components/Hero';
 import ImpactAndBlog from '@/components/ImpactAndBlog';
 import Products from '@/components/Products';
 import Services from '@/components/Services';
+import StatsBar from '@/components/StatsBar';
+import WhyUs from '@/components/WhyUs';
+
+export const metadata = {
+  title: 'Automate IT Limited — ERP & Software Solutions Nepal',
+  description: 'Automate IT Limited delivers ERP systems, custom software, web development, and digital services trusted by 2,500+ organizations across Nepal.',
+};
 
 export default function HomePage() {
   return (
     <>
       <Hero />
+      <StatsBar />
       <About />
       <Products />
       <Services />
+      <WhyUs />
       <ImpactAndBlog />
       <Clients />
     </>

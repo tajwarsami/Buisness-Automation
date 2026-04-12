@@ -1,8 +1,10 @@
-import RoutePageTemplate from '@/components/RoutePageTemplate';
-import { getTopLevelPage } from '@/lib/routeData';
+import ContactPageClient from '@/components/ContactPageClient';
+
+export const metadata = {
+  title: 'Contact Us — Automate IT Limited',
+  description: 'Get in touch with Automate IT Limited. We have offices in Birgunj, Kathmandu, Butwal, Itahari and India.',
+};
 
 export default function ContactPage() {
-  const page = getTopLevelPage('contact');
-
-  return <RoutePageTemplate {...page} relatedLinks={[]} badgeItems={page.highlights} />;
+  return <ContactPageClient />;
 }
