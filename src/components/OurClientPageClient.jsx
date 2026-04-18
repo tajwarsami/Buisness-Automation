@@ -1,4 +1,5 @@
 'use client';
+import PageHero from './PageHero';
 
 const CLIENTS = [
   { name: 'Nepal Rastra Bank', abbr: 'NRB', color: '#0057A8' },
@@ -37,27 +38,14 @@ const STATS = [
 export default function OurClientPageClient() {
   return (
     <>
-      <div className="ocl-hero">
-        <div className="ocl-orb ocl-orb-a" aria-hidden="true" />
-        <div className="ocl-orb ocl-orb-b" aria-hidden="true" />
-        <div className="container ocl-hero-inner">
-          <div className="ocl-hero-text">
-            <span className="ocl-badge">Trusted Partnerships</span>
-            <h1 className="ocl-h1">Our Clients</h1>
-            <p className="ocl-sub">
-              Our client&apos;s enthusiasm for innovation and dedication to quality are at the core of their purpose. Their unwavering commitment to ensuring customer satisfaction makes them a shining example of excellence and dependability. From innovative solutions to individualized care, our customers consistently go above and beyond, becoming the benchmark for excellence in their industry.
-            </p>
-          </div>
-          <div className="ocl-stats">
-            {STATS.map((s) => (
-              <div key={s.label} className="ocl-stat">
-                <strong>{s.number}</strong>
-                <span>{s.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="Trusted Partnerships"
+        title="Our Clients"
+        subtitle="Our client's enthusiasm for innovation and dedication to quality are at the core of their purpose. Their unwavering commitment to ensuring customer satisfaction makes them a shining example of excellence."
+        badges={['2,500+ Organizations', '15+ Years', '10+ Sectors']}
+        stats={STATS}
+        theme="navy"
+      />
 
       <section className="ocl-clients-section">
         <div className="container">

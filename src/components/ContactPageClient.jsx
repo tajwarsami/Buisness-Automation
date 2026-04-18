@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import PageHero from './PageHero';
 
 const OFFICES = [
   {
@@ -67,35 +68,13 @@ export default function ContactPageClient() {
 
   return (
     <>
-      <section className="cp-hero">
-        <div className="cp-hero-shapes" aria-hidden="true">
-          <span className="cp-hero-orb cp-orb-a" />
-          <span className="cp-hero-orb cp-orb-b" />
-        </div>
-        <div className="container cp-hero-inner">
-          <div className="cp-hero-text">
-            <span className="cp-hero-badge">Get In Touch</span>
-            <h1 className="cp-hero-h1">Contact Us</h1>
-            <p className="cp-hero-sub">
-              You can contact us at any time for support. We value our customers more than anything &amp; put our best to provide you with the best quality support.
-            </p>
-            <div className="cp-hero-trust">
-              <span className="cp-trust-item"><span className="cp-trust-dot" />24/7 Support</span>
-              <span className="cp-trust-item"><span className="cp-trust-dot" />5 Offices</span>
-              <span className="cp-trust-item"><span className="cp-trust-dot" />Nepal & India</span>
-            </div>
-          </div>
-          <div className="cp-hero-card-wrap" aria-hidden="true">
-            <div className="cp-hero-deco-card">
-              <div className="cp-deco-row" style={{ width: '80%' }} />
-              <div className="cp-deco-row" style={{ width: '60%' }} />
-              <div className="cp-deco-grid">
-                <span /><span /><span /><span />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Get In Touch"
+        title="Contact Us"
+        subtitle="You can contact us at any time for support. We value our customers more than anything & put our best to provide you with the best quality support."
+        badges={['24/7 Support', '5 Offices', 'Nepal & India']}
+        theme="blue"
+      />
 
       <section className="cp-form-section">
         <div className="container cp-form-grid">

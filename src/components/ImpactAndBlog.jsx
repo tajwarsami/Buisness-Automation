@@ -5,8 +5,8 @@ import { useEffect, useRef } from 'react';
 import { blogsData, tutorialsData } from '@/components/resources/resourcesData';
 
 const tutorialLinks = [
-  { title: tutorialsData.categories[0].items[0].title, href: '/resources/tutorials' },
-  { title: tutorialsData.categories[1].items[0].title, href: '/resources/tutorials' },
+  { title: tutorialsData.videos[0].title, href: '/resources/tutorials' },
+  { title: tutorialsData.videos[1].title, href: '/resources/tutorials' },
   { title: 'Watch Product Tutorials on YouTube', href: 'https://www.youtube.com/' },
 ];
 
@@ -74,7 +74,7 @@ export default function ImpactAndBlog() {
                   <p className="blog-date">{post.date} · {post.readTime}</p>
                   <h3 className="blog-title">{post.title}</h3>
                   <p className="blog-excerpt">{post.excerpt}</p>
-                  <Link href="/resources/blogs" className="blog-read">Read More →</Link>
+                  <Link href={`/resources/blogs/${post.slug}`} className="blog-read">Read More →</Link>
                 </div>
               </article>
             ))}

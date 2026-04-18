@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import PageHero from './PageHero';
 
 export default function AccountPageClient() {
   const [form, setForm] = useState({ username: '', password: '', reason: '' });
@@ -23,19 +24,12 @@ export default function AccountPageClient() {
 
   return (
     <>
-      <section className="acc-hero">
-        <div className="acc-hero-orb acc-orb-a" aria-hidden="true" />
-        <div className="acc-hero-orb acc-orb-b" aria-hidden="true" />
-        <div className="container acc-hero-inner">
-          <div className="acc-hero-text">
-            <span className="acc-hero-badge">Account Management</span>
-            <h1 className="acc-hero-h1">Your Account</h1>
-            <p className="acc-hero-sub">
-              Manage your Automate IT Limited account settings. Use the options below to update your preferences or permanently delete your account.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Account Management"
+        title="Your Account"
+        subtitle="Manage your Automate IT Limited account settings. Use the options below to update your preferences or permanently delete your account."
+        theme="rose"
+      />
 
       <section className="acc-section">
         <div className="container acc-layout">
