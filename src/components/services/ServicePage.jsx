@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PageHero from '../PageHero';
 
 /* ─── Process step ─── */
 function ProcessStep({ step, title, description }) {
@@ -54,51 +55,18 @@ export default function ServicePage({ data, relatedLinks = [] }) {
     <div className={`svc-page ${colorClass}`}>
 
       {/* ── Hero ── */}
-      <section className="svc-hero">
-        <div className="svc-hero-bg" aria-hidden="true">
-          <div className="svc-hero-gradient" />
-          <div className="svc-hero-particle svc-hp-1" />
-          <div className="svc-hero-particle svc-hp-2" />
-          <div className="svc-hero-particle svc-hp-3" />
+      <PageHero
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        subtitle={hero.subtitle}
+        badges={hero.badges}
+        theme="teal"
+      >
+        <div className="ph-page-actions">
+          <Link href="/contact" className="ph-btn-primary">Start a Conversation</Link>
+          <Link href="/services" className="ph-btn-ghost">All Services</Link>
         </div>
-        <div className="container svc-hero-inner">
-          <div className="svc-hero-copy">
-            <span className="svc-eyebrow">{hero.eyebrow}</span>
-            <h1 className="svc-hero-title">{hero.title}</h1>
-            <p className="svc-hero-subtitle">{hero.subtitle}</p>
-            <div className="svc-hero-badges">
-              {hero.badges.map((b) => (
-                <span key={b} className="svc-badge">{b}</span>
-              ))}
-            </div>
-            <div className="svc-hero-actions">
-              <Link href="/contact" className="btn-primary">Start a Conversation</Link>
-              <Link href="/services" className="btn-outline-blue">All Services</Link>
-            </div>
-          </div>
-          <div className="svc-hero-visual" aria-hidden="true">
-            <div className="svc-hero-soft-gradient" />
-            <div className="svc-hero-soft-ring svc-hero-soft-ring-lg" />
-            <div className="svc-hero-soft-ring svc-hero-soft-ring-sm" />
-            <div className="svc-hero-soft-card">
-              <div className="svc-hero-soft-dot-row">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="svc-hero-soft-line svc-hero-soft-line-lg" />
-              <div className="svc-hero-soft-line svc-hero-soft-line-md" />
-              <div className="svc-hero-soft-grid">
-                <span />
-                <span />
-                <span />
-                <span />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="svc-hero-wave" />
-      </section>
+      </PageHero>
 
       {/* ── Intro ── */}
       <section className="svc-section svc-intro-section">

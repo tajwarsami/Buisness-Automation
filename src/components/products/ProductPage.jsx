@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PageHero from '../PageHero';
 
 /* ─── Module card ─── */
 function ModuleCard({ icon, name, description }) {
@@ -49,55 +50,18 @@ export default function ProductPage({ data, relatedLinks = [] }) {
     <div className={`prod-page ${colorClass}`}>
 
       {/* ── Hero ── */}
-      <section className="prod-hero">
-        <div className="prod-hero-bg" aria-hidden="true">
-          <div className="prod-hero-glow" />
-          <div className="prod-hero-dots" />
+      <PageHero
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        subtitle={hero.subtitle}
+        badges={hero.badges}
+        theme="blue"
+      >
+        <div className="ph-page-actions">
+          <Link href="/contact" className="ph-btn-primary">Request a Demo</Link>
+          <Link href="/products" className="ph-btn-ghost">All Products</Link>
         </div>
-        <div className="container prod-hero-inner">
-          <div className="prod-hero-copy">
-            <span className="prod-eyebrow">{hero.eyebrow}</span>
-            <h1 className="prod-hero-title">{hero.title}</h1>
-            <p className="prod-hero-subtitle">{hero.subtitle}</p>
-            <div className="prod-hero-badges">
-              {hero.badges.map((b) => (
-                <span key={b} className="prod-badge">{b}</span>
-              ))}
-            </div>
-            <div className="prod-hero-actions">
-              <Link href="/contact" className="btn-primary">Request a Demo</Link>
-              <Link href="/products" className="btn-outline-blue">All Products</Link>
-            </div>
-          </div>
-          <div className="prod-hero-visual" aria-hidden="true">
-            <div className="prod-visual-screen">
-              <div className="prod-vs-topbar">
-                <span className="prod-vs-dot" /><span className="prod-vs-dot" /><span className="prod-vs-dot" />
-              </div>
-              <div className="prod-vs-body">
-                <div className="prod-vs-sidebar">
-                  {[1, 2, 3, 4, 5].map((i) => <div key={i} className="prod-vs-nav-item" />)}
-                </div>
-                <div className="prod-vs-content">
-                  <div className="prod-vs-bar prod-vs-bar-lg" />
-                  <div className="prod-vs-bar prod-vs-bar-md" />
-                  <div className="prod-vs-chart">
-                    {[60, 80, 55, 90, 70, 95].map((h, i) => (
-                      <div key={i} className="prod-vs-chart-col" style={{ '--h': `${h}%` }} />
-                    ))}
-                  </div>
-                  <div className="prod-vs-grid-rows">
-                    <div className="prod-vs-bar prod-vs-bar-sm" />
-                    <div className="prod-vs-bar prod-vs-bar-md" />
-                    <div className="prod-vs-bar prod-vs-bar-xs" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="prod-hero-wave" />
-      </section>
+      </PageHero>
 
       {/* ── Intro ── */}
       <section className="prod-section prod-intro-section">
