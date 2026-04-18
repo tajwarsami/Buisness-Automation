@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import PageHero from '../PageHero';
 
 function ProfileAvatar({ member }) {
   if (member.photo) {
@@ -43,23 +44,13 @@ export default function AboutDetailPage({ page, relatedLinks = [] }) {
   return (
     <div className="about-detail-page">
       {showHero && (
-        <section className="about-detail-hero">
-          <div className="about-detail-hero-wave" aria-hidden="true" />
-          <div className="container about-detail-hero-inner">
-            <div className="about-detail-copy">
-              <span className="about-detail-eyebrow">About Us</span>
-              <h1 className="about-detail-title">{page.heroTitle}</h1>
-              <p className="about-detail-subtitle">{page.heroSubtitle}</p>
-              {page.badgeItems?.length > 0 && (
-                <div className="about-detail-badges">
-                  {page.badgeItems.map((item) => (
-                    <span key={item} className="about-detail-badge">{item}</span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="About Us"
+          title={page.heroTitle}
+          subtitle={page.heroSubtitle}
+          badges={page.badgeItems ?? []}
+          theme="navy"
+        />
       )}
 
       {showIntro && (

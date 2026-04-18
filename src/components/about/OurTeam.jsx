@@ -1,173 +1,106 @@
-import Link from 'next/link';
+'use client';
+
+import { useState } from 'react';
+import PageHero from '../PageHero';
 import { ourTeamData as d } from './ourTeamData';
+import { ABOUT_DETAIL_PAGES } from '@/data/siteContent';
 
-function DeptCard({ name, icon, count, description, skills }) {
-  return (
-    <article className="ot-dept-card">
-      <div className="ot-dept-header">
-        <div className="ot-dept-icon">{icon}</div>
-        <div>
-          <h3 className="ot-dept-name">{name}</h3>
-          <span className="ot-dept-count">{count} members</span>
-        </div>
-      </div>
-      <p className="ot-dept-desc">{description}</p>
-      <ul className="ot-dept-skills">
-        {skills.map((s) => (
-          <li key={s} className="ot-skill-tag">{s}</li>
-        ))}
-      </ul>
-    </article>
-  );
-}
+function ProfileAvatar({ member }) {
+  const initials = member.name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join('')
+    .toUpperCase();
 
-function CultureItem({ value, description }) {
-  return (
-    <div className="ot-culture-item">
-      <div className="ot-culture-mark">✦</div>
-      <div>
-        <h4 className="ot-culture-value">{value}</h4>
-        <p className="ot-culture-desc">{description}</p>
-      </div>
-    </div>
-  );
-}
-
-function LeaderCard({ name, role, bio, initials }) {
-  return (
-    <div className="ot-leader-card">
-      <div className="ot-leader-avatar">
-        <span>{initials}</span>
-      </div>
-      <div className="ot-leader-info">
-        <h4 className="ot-leader-name">{name}</h4>
-        <span className="ot-leader-role">{role}</span>
-        <p className="ot-leader-bio">{bio}</p>
-      </div>
-    </div>
-  );
+  return <div className="about-profile-avatar-fallback">{initials}</div>;
 }
 
 export default function OurTeam() {
-  const { hero, intro, departments, culture, leadership, cta } = d;
+  const { hero } = d;
+  const teamPage = ABOUT_DETAIL_PAGES['our-team'];
+  const [selectedMemberId, setSelectedMemberId] = useState(teamPage.teamMembers?.[0]?.id ?? null);
+  const [expandedMemberId, setExpandedMemberId] = useState(null);
+  const primaryMember = teamPage.teamMembers?.find((member) => member.id === selectedMemberId) ?? teamPage.teamMembers?.[0] ?? null;
+  const isExpanded = primaryMember ? expandedMemberId === primaryMember.id : false;
+  const visibleSpeech = primaryMember
+    ? isExpanded
+      ? primaryMember.fullSpeech ?? primaryMember.speech
+      : primaryMember.speech
+    : '';
+
+  function handleMemberSelect(memberId) {
+    setSelectedMemberId(memberId);
+    setExpandedMemberId(null);
+  }
 
   return (
     <div className="ot-page">
+      <PageHero
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        subtitle={hero.subtitle}
+        badges={hero.badges}
+        theme="navy"
+      />
 
-      {/* ── Hero ── */}
-      <section className="ot-hero">
-        <div className="ot-hero-bg" aria-hidden="true">
-          <div className="ot-hero-grid" />
-          <div className="ot-hero-glow" />
-        </div>
-        <div className="container ot-hero-inner">
-          <div className="ot-hero-copy">
-            <span className="ot-eyebrow">{hero.eyebrow}</span>
-            <h1 className="ot-hero-title">{hero.title}</h1>
-            <p className="ot-hero-subtitle">{hero.subtitle}</p>
-            <div className="ot-hero-badges">
-              {hero.badges.map((b) => (
-                <span key={b} className="ot-badge">{b}</span>
-              ))}
+      {teamPage.teamMembers?.length > 0 && primaryMember && (
+        <section className="about-detail-section about-detail-team-section">
+          <div className="container">
+            <div className="about-detail-section-header">
+              <h2 className="about-detail-heading">{teamPage.teamSectionTitle}</h2>
+              <p className="about-detail-text about-team-section-text">{teamPage.teamSectionDescription}</p>
             </div>
-          </div>
-          <div className="ot-hero-visual" aria-hidden="true">
-            <div className="ot-avatar-cluster">
-              {['ENG', 'DES', 'IMP', 'SUP', 'BDV', 'OPS'].map((label, i) => (
-                <div key={label} className={`ot-cluster-avatar ot-ca-${i + 1}`}>
-                  {label}
-                </div>
-              ))}
-              <div className="ot-cluster-center">TEAM</div>
-            </div>
-          </div>
-        </div>
-        <div className="ot-hero-wave" />
-      </section>
 
-      <section className="ot-section ot-intro-section">
-        <div className="container ot-intro-grid">
-          <div className="ot-intro-copy">
-            <span className="ot-section-label">How We Work</span>
-            <h2 className="ot-section-h2">{intro.heading}</h2>
-            {intro.paragraphs.map((p) => (
-              <p key={p.slice(0, 30)} className="ot-intro-p">{p}</p>
-            ))}
-          </div>
-          <div className="ot-team-stat-stack">
-            {[
-              { value: '50+', label: 'Team Members' },
-              { value: '6', label: 'Departments' },
-              { value: '10+', label: 'Years Together' },
-            ].map(({ value, label }) => (
-              <div key={label} className="ot-team-stat">
-                <span className="ot-ts-value">{value}</span>
-                <span className="ot-ts-label">{label}</span>
+            <div className="about-team-layout">
+              <div className="about-profile-grid" role="tablist" aria-label="Leadership team">
+                {teamPage.teamMembers.map((member) => (
+                  <button
+                    key={member.id}
+                    type="button"
+                    className={`about-profile-button${primaryMember.id === member.id ? ' active' : ''}`}
+                    onClick={() => handleMemberSelect(member.id)}
+                  >
+                    <span className="about-profile-avatar">
+                      <ProfileAvatar member={member} />
+                    </span>
+                    <span className="about-profile-meta">
+                      <span className="about-profile-name">{member.name}</span>
+                      <span className="about-profile-position">{member.position}</span>
+                    </span>
+                  </button>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <section className="ot-section ot-dept-section">
-        <div className="container">
-          <div className="ot-section-header">
-            <span className="ot-section-label">Our Structure</span>
-            <h2 className="ot-section-h2">Departments & Capabilities</h2>
-          </div>
-          <div className="ot-dept-grid">
-            {departments.map((dept) => (
-              <DeptCard key={dept.name} {...dept} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="ot-section ot-leadership-section">
-        <div className="container">
-          <div className="ot-section-header">
-            <span className="ot-section-label">Leadership</span>
-            <h2 className="ot-section-h2">The Voices That Shape Direction</h2>
-          </div>
-          <div className="ot-leader-grid">
-            {leadership.map((l) => (
-              <LeaderCard key={l.role} {...l} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="ot-section ot-culture-section">
-        <div className="container">
-          <div className="ot-culture-grid">
-            <div className="ot-culture-header">
-              <span className="ot-section-label">Our Culture</span>
-              <h2 className="ot-section-h2">Values We Build With</h2>
-              <p className="ot-culture-intro">
-                Our team culture is shaped by how we treat each other and our clients every single day.
-              </p>
-            </div>
-            <div className="ot-culture-items">
-              {culture.map((c) => (
-                <CultureItem key={c.value} {...c} />
-              ))}
+              <article key={`${primaryMember.id}-${isExpanded ? 'open' : 'closed'}`} className="about-speech-card about-speech-card-animated">
+                <div className="about-speech-visual">
+                  <div className="about-speech-avatar about-speech-avatar-large">
+                    <ProfileAvatar member={primaryMember} />
+                  </div>
+                </div>
+                <div className="about-speech-header">
+                  <div>
+                    <h3>{primaryMember.name}</h3>
+                    <p>{primaryMember.position}</p>
+                  </div>
+                </div>
+                <blockquote className="about-speech-quote">"{visibleSpeech}"</blockquote>
+                {primaryMember.summary && <p className="about-speech-summary">{primaryMember.summary}</p>}
+                {primaryMember.fullSpeech && primaryMember.fullSpeech !== primaryMember.speech && (
+                  <button
+                    type="button"
+                    className="about-read-more-button"
+                    onClick={() => setExpandedMemberId(isExpanded ? null : primaryMember.id)}
+                  >
+                    {isExpanded ? 'View Less' : 'View More'}
+                  </button>
+                )}
+              </article>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="ot-cta-section">
-        <div className="container ot-cta-inner">
-          <div className="ot-cta-copy">
-            <h2 className="ot-cta-heading">{cta.heading}</h2>
-            <p className="ot-cta-text">{cta.text}</p>
-          </div>
-          <div className="ot-cta-actions">
-            <Link href="/contact" className="btn-primary">Contact the Team</Link>
-            <Link href="/about/our-company" className="btn-outline-blue">Our Company</Link>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   );
 }
