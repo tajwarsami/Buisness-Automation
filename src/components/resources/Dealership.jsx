@@ -1,11 +1,58 @@
-import Link from 'next/link';
 import { dealershipData as d } from './resourcesData';
+import PageHero from '../PageHero';
 
-function BenefitCard({ icon, title, description }) {
+function getYoutubeVideoId(url) {
+  const match = url.match(/(?:v=|youtu\.be\/|embed\/)([^&?/]+)/);
+  return match?.[1] ?? '';
+}
+
+function DealershipForm({ form }) {
   return (
-    <div className="deal-benefit-card">
+    <form className="deal-form-card" id="dealership-form">
+      <div className="deal-form-header-area">
+        <div className="deal-form-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0057A8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div>
+          <h2 className="deal-form-title">{form.heading}</h2>
+          <p className="deal-form-desc">{form.description}</p>
+        </div>
+      </div>
+      <div className="deal-form-grid">
+        {form.fields.map((field) => (
+          <label key={field.name} className="deal-form-field">
+            <span>{field.label}</span>
+            <input type={field.type} name={field.name} placeholder={field.placeholder} />
+          </label>
+        ))}
+      </div>
+      <div className="deal-form-stack">
+        <label className="deal-form-field">
+          <span>{form.interestLabel}</span>
+          <select name="interestLevel" defaultValue={form.interestOptions[0]}>
+            {form.interestOptions.map((option) => (
+              <option key={option}>{option}</option>
+            ))}
+          </select>
+        </label>
+        <label className="deal-form-field">
+          <span>{form.messageLabel}</span>
+          <textarea name="message" rows="5" placeholder={form.messagePlaceholder} />
+        </label>
+      </div>
+      <button type="submit" className="deal-submit-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        {form.submitLabel}
+      </button>
+    </form>
+  );
+}
+
+function BenefitCard({ icon, title, description, index }) {
+  return (
+    <div className="deal-benefit-card blog-card-animated" style={{ animationDelay: `${index * 0.08}s` }}>
       <div className="deal-benefit-icon">{icon}</div>
-      <h4 className="deal-benefit-title">{title}</h4>
+      <h3 className="deal-benefit-title">{title}</h3>
       <p className="deal-benefit-desc">{description}</p>
     </div>
   );
@@ -13,156 +60,113 @@ function BenefitCard({ icon, title, description }) {
 
 function TierCard({ name, requirements, benefits, highlight }) {
   return (
-    <div className={`deal-tier-card ${highlight ? 'deal-tier-featured' : ''}`}>
-      {highlight && <div className="deal-tier-featured-badge">Most Popular</div>}
-      <h3 className="deal-tier-name">{name}</h3>
-      <div className="deal-tier-req">
-        <span className="deal-tier-req-label">Requirement:</span>
-        <span>{requirements}</span>
-      </div>
+    <div className={`deal-tier-card${highlight ? ' deal-tier-highlighted' : ''}`}>
+      {highlight && <div className="deal-tier-popular">Most Popular</div>}
+      <div className="deal-tier-name">{name}</div>
+      <div className="deal-tier-req">{requirements}</div>
       <ul className="deal-tier-benefits">
         {benefits.map((b) => (
-          <li key={b} className="deal-tier-benefit">
-            <span className="deal-tier-check">✓</span>
+          <li key={b}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             {b}
           </li>
         ))}
       </ul>
-      <Link href="/contact" className={highlight ? 'btn-primary deal-tier-btn' : 'btn-outline-blue deal-tier-btn'}>
-        Apply Now
-      </Link>
     </div>
   );
 }
 
-function ProcessStep({ step, title, description }) {
+function ProcessStep({ step, title, description, index }) {
   return (
-    <div className="deal-step">
-      <div className="deal-step-circle">{step}</div>
-      <div className="deal-step-body">
-        <h4 className="deal-step-title">{title}</h4>
-        <p className="deal-step-desc">{description}</p>
-      </div>
+    <div className="deal-process-step blog-card-animated" style={{ animationDelay: `${index * 0.1}s` }}>
+      <div className="deal-process-num">{step}</div>
+      <div className="deal-process-title">{title}</div>
+      <div className="deal-process-desc">{description}</div>
     </div>
   );
 }
 
 export default function Dealership() {
-  const { hero, intro, benefits, eligibility, tiers, process, cta } = d;
+  const { hero, intro, heroVideo, form, benefits, tiers, process } = d;
+  const videoId = getYoutubeVideoId(heroVideo.youtubeUrl);
+  const thumbnail = videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : '';
+
   return (
-    <div className="deal-page">
-      {/* Hero */}
-      <section className="deal-hero">
-        <div className="deal-hero-bg" aria-hidden="true">
-          <div className="deal-hero-mesh" />
+    <div className="resource-clean-page deal-page">
+
+      <PageHero title={hero.title} theme="teal" />
+
+      {/* ── Intro ── */}
+      <div className="deal-intro-strip">
+        <div className="container deal-intro-inner">
+          <div className="deal-intro-icon">🤝</div>
+          <p className="deal-intro-text">{intro.heading}</p>
         </div>
-        <div className="container deal-hero-inner">
-          <div className="deal-hero-copy">
-            <span className="deal-eyebrow">{hero.eyebrow}</span>
-            <h1 className="deal-hero-title">{hero.title}</h1>
-            <p className="deal-hero-subtitle">{hero.subtitle}</p>
-            <div className="deal-hero-badges">
-              {hero.badges.map((b) => <span key={b} className="deal-badge">{b}</span>)}
+      </div>
+
+      {/* ── Benefits ── */}
+      {benefits && (
+        <section className="deal-benefits-section">
+          <div className="container">
+            <div className="deal-section-head">
+              <div className="deal-section-label">Partnership Benefits</div>
+              <h2 className="deal-section-h2">Why Partner With Us</h2>
             </div>
-            <div className="deal-hero-actions">
-              <Link href="/contact" className="btn-primary">Apply to Partner</Link>
-              <a href="#deal-tiers" className="btn-outline-blue">View Tiers</a>
-            </div>
-          </div>
-          <div className="deal-hero-visual" aria-hidden="true">
-            <div className="deal-visual-network">
-              <div className="deal-vn-center">DT</div>
-              {['Partner A', 'Partner B', 'Partner C', 'Partner D'].map((p, i) => (
-                <div key={p} className={`deal-vn-node deal-vn-node-${i + 1}`}>{p[8]}</div>
+            <div className="deal-benefits-grid">
+              {benefits.map((b, i) => (
+                <BenefitCard key={b.title} {...b} index={i} />
               ))}
-              <div className="deal-vn-ring" />
             </div>
           </div>
-        </div>
-        <div className="deal-hero-wave" />
-      </section>
+        </section>
+      )}
 
-      {/* Intro */}
-      <section className="deal-section deal-intro-section">
-        <div className="container deal-intro-grid">
-          <div>
-            <span className="deal-section-label">Partnership Opportunity</span>
-            <h2 className="deal-section-h2">{intro.heading}</h2>
-            {intro.paragraphs.map((p) => <p key={p.slice(0,30)} className="deal-intro-p">{p}</p>)}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits */}
-      <section className="deal-section deal-benefits-section">
-        <div className="container">
-          <div className="deal-section-header">
-            <span className="deal-section-label">What You Get</span>
-            <h2 className="deal-section-h2">Dealer Benefits</h2>
-          </div>
-          <div className="deal-benefits-grid">
-            {benefits.map((b) => <BenefitCard key={b.title} {...b} />)}
-          </div>
-        </div>
-      </section>
-
-      {/* Tiers */}
-      <section className="deal-section deal-tiers-section" id="deal-tiers">
-        <div className="container">
-          <div className="deal-section-header deal-section-header-light">
-            <span className="deal-section-label-light">Partnership Levels</span>
-            <h2 className="deal-section-h2-light">Dealer Tiers</h2>
-          </div>
-          <div className="deal-tiers-grid">
-            {tiers.map((t) => <TierCard key={t.name} {...t} />)}
-          </div>
-        </div>
-      </section>
-
-      {/* Eligibility */}
-      <section className="deal-section deal-eligibility-section">
-        <div className="container deal-eligibility-inner">
-          <div className="deal-eligibility-copy">
-            <span className="deal-section-label">Requirements</span>
-            <h2 className="deal-section-h2">Eligibility Criteria</h2>
-            <ul className="deal-eligibility-list">
-              {eligibility.map((item) => (
-                <li key={item.slice(0,30)} className="deal-eligibility-item">
-                  <span className="deal-eligibility-icon">✓</span>
-                  {item}
-                </li>
+      {/* ── Process ── */}
+      {process && (
+        <section className="deal-process-section">
+          <div className="container">
+            <div className="deal-section-head">
+              <div className="deal-section-label">How It Works</div>
+              <h2 className="deal-section-h2">Partner Onboarding Process</h2>
+            </div>
+            <div className="deal-process-steps">
+              {process.map((step, i) => (
+                <ProcessStep key={step.step} {...step} index={i} />
               ))}
-            </ul>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Process */}
-      <section className="deal-section deal-process-section">
+      {/* ── Tiers ── */}
+      {tiers && (
+        <section className="deal-tiers-section">
+          <div className="container">
+            <div className="deal-section-head">
+              <div className="deal-section-label">Partner Tiers</div>
+              <h2 className="deal-section-h2">Choose Your Level</h2>
+            </div>
+            <div className="deal-tiers-grid">
+              {tiers.map((t) => (
+                <TierCard key={t.name} {...t} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Application Form ── */}
+      <section className="deal-form-section">
         <div className="container">
-          <div className="deal-section-header">
-            <span className="deal-section-label">How It Works</span>
-            <h2 className="deal-section-h2">Application Process</h2>
+          <div className="deal-section-head">
+            <div className="deal-section-label">Apply Now</div>
+            <h2 className="deal-section-h2">Submit Your Dealership Request</h2>
+            <p className="deal-section-sub">{intro.paragraphs[0]}</p>
           </div>
-          <div className="deal-process-track">
-            {process.map((step) => <ProcessStep key={step.step} {...step} />)}
-          </div>
+          <DealershipForm form={form} />
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="deal-cta-section">
-        <div className="container deal-cta-inner">
-          <div className="deal-cta-copy">
-            <h2 className="deal-cta-heading">{cta.heading}</h2>
-            <p className="deal-cta-text">{cta.text}</p>
-          </div>
-          <div className="deal-cta-actions">
-            <Link href="/contact" className="btn-primary">Apply to Partner</Link>
-            <Link href="/resources" className="btn-outline-blue">All Resources</Link>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

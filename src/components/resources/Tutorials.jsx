@@ -1,115 +1,110 @@
-import Link from 'next/link';
-import { tutorialsData as d } from './resourcesData';
+'use client';
 
-function TutorialItem({ title, duration, type }) {
-  return (
-    <div className="tut-item">
-      <div className="tut-item-type">{type === 'Video' ? '▶' : '📄'}</div>
-      <div className="tut-item-body">
-        <span className="tut-item-title">{title}</span>
-        <div className="tut-item-meta">
-          <span className="tut-item-duration">⏱ {duration}</span>
-          <span className={`tut-item-badge ${type === 'Video' ? 'tut-badge-video' : 'tut-badge-article'}`}>{type}</span>
-        </div>
-      </div>
-      <div className="tut-item-arrow">→</div>
-    </div>
-  );
+import Image from 'next/image';
+import { useState } from 'react';
+import { tutorialsData as d } from './resourcesData';
+import PageHero from '../PageHero';
+
+const INITIAL_VIDEO_COUNT = 6;
+
+function getYoutubeVideoId(url) {
+  const match = url.match(/(?:v=|youtu\.be\/|embed\/)([^&?/]+)/);
+  return match?.[1] ?? '';
 }
 
-function CategorySection({ title, icon, description, items }) {
+const CATEGORY_COLORS = {
+  'Academic ERP': { from: '#0057A8', to: '#0096D6' },
+  Accounting: { from: '#16a34a', to: '#22c55e' },
+  'Hospital ERP': { from: '#dc2626', to: '#f87171' },
+  'HR and Payroll': { from: '#7c3aed', to: '#a78bfa' },
+  'SMS System': { from: '#d97706', to: '#fbbf24' },
+  Reporting: { from: '#0891b2', to: '#22d3ee' },
+  Dealership: { from: '#0f766e', to: '#2dd4bf' },
+};
+
+function TutorialVideoCard({ title, category, duration, youtubeUrl, index }) {
+  const videoId = getYoutubeVideoId(youtubeUrl);
+  const thumbnail = videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : '';
+  const cat = CATEGORY_COLORS[category] || { from: '#0057A8', to: '#0096D6' };
+
   return (
-    <div className="tut-category">
-      <div className="tut-cat-header">
-        <span className="tut-cat-icon">{icon}</span>
-        <div>
-          <h3 className="tut-cat-title">{title}</h3>
-          <p className="tut-cat-desc">{description}</p>
+    <a
+      className="tut-video-card tut-video-card-upgraded"
+      href={youtubeUrl}
+      target="_blank"
+      rel="noreferrer"
+      style={{ animationDelay: `${index * 0.08}s` }}
+    >
+      <div className="tut-video-thumb-wrap">
+        {thumbnail
+          ? (
+            <Image
+              src={thumbnail}
+              alt={title}
+              className="tut-video-thumb"
+              width={480}
+              height={360}
+              unoptimized
+            />
+          )
+          : <div className="tut-video-thumb tut-video-thumb-fallback" />}
+        <div className="tut-play-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+        </div>
+        <div className="tut-duration-chip">{duration}</div>
+      </div>
+      <div className="tut-video-body">
+        <span
+          className="tut-video-category"
+          style={{ background: `linear-gradient(135deg, ${cat.from}, ${cat.to})`, color: '#fff', borderRadius: '999px', padding: '4px 12px', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.06em' }}
+        >
+          {category}
+        </span>
+        <h3 className="tut-video-title">{title}</h3>
+        <div className="tut-video-meta">
+          <span className="tut-meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+            {duration}
+          </span>
+          <span className="tut-meta-item tut-yt-badge">
+            <svg width="13" height="10" viewBox="0 0 20 14" fill="currentColor"><path d="M19.582 2.186A2.506 2.506 0 0017.818.413C16.254 0 10 0 10 0S3.746 0 2.182.413A2.506 2.506 0 00.418 2.186C0 3.76 0 7 0 7s0 3.24.418 4.814a2.506 2.506 0 001.764 1.773C3.746 14 10 14 10 14s6.254 0 7.818-.413a2.506 2.506 0 001.764-1.773C20 10.24 20 7 20 7s0-3.24-.418-4.814zM8 10V4l5.2 3L8 10z" /></svg>
+            Watch on YouTube
+          </span>
         </div>
       </div>
-      <div className="tut-items">
-        {items.map((item) => <TutorialItem key={item.title} {...item} />)}
-      </div>
-    </div>
+    </a>
   );
 }
 
 export default function Tutorials() {
-  const { hero, intro, categories, cta } = d;
+  const { hero, videos } = d;
+  const [showAll, setShowAll] = useState(false);
+  const visibleVideos = showAll ? videos : videos.slice(0, INITIAL_VIDEO_COUNT);
+  const hasMore = videos.length > INITIAL_VIDEO_COUNT && !showAll;
+
   return (
-    <div className="tut-page">
-      {/* Hero */}
-      <section className="tut-hero">
-        <div className="tut-hero-bg" aria-hidden="true">
-          <div className="tut-hero-wave-1" />
-          <div className="tut-hero-wave-2" />
-        </div>
-        <div className="container tut-hero-inner">
-          <div className="tut-hero-copy">
-            <span className="tut-eyebrow">{hero.eyebrow}</span>
-            <h1 className="tut-hero-title">{hero.title}</h1>
-            <p className="tut-hero-subtitle">{hero.subtitle}</p>
-            <div className="tut-hero-badges">
-              {hero.badges.map((b) => <span key={b} className="tut-badge">{b}</span>)}
-            </div>
-          </div>
-          <div className="tut-hero-search" aria-label="Tutorial search placeholder">
-            <div className="tut-search-bar">
-              <span className="tut-search-icon">🔍</span>
-              <span className="tut-search-placeholder">Search tutorials…</span>
-            </div>
-            <div className="tut-search-tags">
-              {['Setup', 'Fees', 'Reports', 'Users', 'API'].map((t) => (
-                <span key={t} className="tut-search-tag">{t}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="tut-hero-wave-bottom" />
-      </section>
+    <div className="resource-clean-page tutorials-page">
+      <PageHero title={hero.title} theme="violet" />
 
-      {/* Intro */}
-      <section className="tut-section tut-intro-section">
+      <section className="resource-clean-section">
         <div className="container">
-          <div className="tut-intro-grid">
-            <div>
-              <span className="tut-section-label">About This Library</span>
-              <h2 className="tut-section-h2">{intro.heading}</h2>
-              {intro.paragraphs.map((p) => <p key={p.slice(0,30)} className="tut-intro-p">{p}</p>)}
+          <div className="resource-clean-grid">
+            {visibleVideos.map((video, index) => (
+              <TutorialVideoCard key={video.title} {...video} index={index} />
+            ))}
+          </div>
+          {hasMore && (
+            <div className="resource-see-more-wrap">
+              <button
+                className="resource-see-more-btn"
+                type="button"
+                onClick={() => setShowAll(true)}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M5 12l7 7 7-7" /></svg>
+                See More
+              </button>
             </div>
-            <div className="tut-stats-strip">
-              {[{ v: '50+', l: 'Tutorials' }, { v: '4', l: 'Categories' }, { v: 'Free', l: 'Access' }].map(({ v, l }) => (
-                <div key={l} className="tut-stat"><span className="tut-stat-v">{v}</span><span className="tut-stat-l">{l}</span></div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Categories */}
-      <section className="tut-section tut-cats-section">
-        <div className="container">
-          <div className="tut-section-header">
-            <span className="tut-section-label">Tutorial Library</span>
-            <h2 className="tut-section-h2">Browse by Category</h2>
-          </div>
-          <div className="tut-cats-grid">
-            {categories.map((cat) => <CategorySection key={cat.title} {...cat} />)}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="tut-cta-section">
-        <div className="container tut-cta-inner">
-          <div className="tut-cta-copy">
-            <h2 className="tut-cta-heading">{cta.heading}</h2>
-            <p className="tut-cta-text">{cta.text}</p>
-          </div>
-          <div className="tut-cta-actions">
-            <Link href="/contact" className="btn-primary">Contact Support</Link>
-            <Link href="/resources" className="btn-outline-blue">All Resources</Link>
-          </div>
+          )}
         </div>
       </section>
     </div>

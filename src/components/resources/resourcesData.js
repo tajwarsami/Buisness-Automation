@@ -10,61 +10,71 @@ export const tutorialsData = {
     eyebrow: 'Resources · Tutorials',
     title: 'Tutorials',
     subtitle:
-      'Step-by-step guides to help you configure, use, and get the most from every Automate IT Limited product — from initial setup to advanced workflows.',
-    badges: ['Step-by-Step', 'Video & Text', 'Beginner to Advanced'],
+      'Step-by-step video tutorials to help your team configure, use, and get the most from every Dynamic Technosoft product.',
+    badges: ['Video Tutorials', 'Step-by-Step', 'Beginner to Advanced'],
     color: 'blue',
   },
   intro: {
-    heading: 'Learn at your own pace with structured guidance',
+    heading: 'Learn at your own pace with practical walkthroughs',
     paragraphs: [
-      'Our tutorials are written and recorded to reflect real usage scenarios — not theoretical feature walkthroughs. Each one targets a specific task or workflow that users actually need to complete.',
-      'From getting started on day one to configuring advanced modules, the tutorial library grows as our products evolve.',
+      'Our tutorial library is built around real tasks that schools, hospitals, offices, and partner teams need to complete every day.',
+      'Each video is designed to be easy to follow so new users can get started quickly and experienced teams can refresh important workflows whenever needed.',
     ],
   },
-  categories: [
+  library: {
+    label: 'Video Tutorials',
+    heading: 'Watch and learn with guided product videos',
+    description:
+      'Open any tutorial video to watch the walkthrough on YouTube. We show the first six videos by default and reveal the rest with an animated see more button when additional content is available.',
+  },
+  videos: [
     {
-      title: 'Getting Started',
-      icon: '🚀',
-      description: 'First-time setup, account configuration, and understanding the system layout.',
-      items: [
-        { title: 'Setting Up Your Account', duration: '5 min', type: 'Video' },
-        { title: 'Navigating the Dashboard', duration: '8 min', type: 'Video' },
-        { title: 'Configuring User Roles', duration: '10 min', type: 'Article' },
-        { title: 'Importing Initial Data', duration: '12 min', type: 'Article' },
-      ],
+      title: 'Dynamic Academic ERP Overview',
+      category: 'Academic ERP',
+      duration: '6 min',
+      youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     },
     {
-      title: 'Core Workflows',
-      icon: '⚙️',
-      description: 'Essential tasks and processes your team will use every day.',
-      items: [
-        { title: 'Managing Student / Patient / Member Records', duration: '15 min', type: 'Video' },
-        { title: 'Processing Fees and Payments', duration: '12 min', type: 'Video' },
-        { title: 'Generating Reports', duration: '10 min', type: 'Article' },
-        { title: 'Sending Notifications', duration: '8 min', type: 'Video' },
-      ],
+      title: 'Student Admission Setup Tutorial',
+      category: 'Academic ERP',
+      duration: '8 min',
+      youtubeUrl: 'https://www.youtube.com/watch?v=ysz5S6PUM-U',
     },
     {
-      title: 'Advanced Configuration',
-      icon: '🔧',
-      description: 'Power-user features, integrations, and customization options.',
-      items: [
-        { title: 'Customizing Report Templates', duration: '20 min', type: 'Article' },
-        { title: 'Setting Up Automated Alerts', duration: '15 min', type: 'Video' },
-        { title: 'API Integration Guide', duration: '30 min', type: 'Article' },
-        { title: 'Backup and Data Export', duration: '10 min', type: 'Video' },
-      ],
+      title: 'Fee Collection and Payment Entry',
+      category: 'Accounting',
+      duration: '7 min',
+      youtubeUrl: 'https://www.youtube.com/watch?v=jNQXAC9IVRw',
     },
     {
-      title: 'Troubleshooting',
-      icon: '🛟',
-      description: 'Common problems, their causes, and step-by-step resolution guides.',
-      items: [
-        { title: 'Login and Access Issues', duration: '5 min', type: 'Article' },
-        { title: 'Report Not Generating', duration: '8 min', type: 'Article' },
-        { title: 'SMS Not Delivering', duration: '6 min', type: 'Article' },
-        { title: 'Data Import Errors', duration: '10 min', type: 'Article' },
-      ],
+      title: 'Hospital ERP Patient Registration Flow',
+      category: 'Hospital ERP',
+      duration: '9 min',
+      youtubeUrl: 'https://www.youtube.com/watch?v=aqz-KE-bpKQ',
+    },
+    {
+      title: 'HR and Payroll Attendance Configuration',
+      category: 'HR and Payroll',
+      duration: '5 min',
+      youtubeUrl: 'https://www.youtube.com/watch?v=ScMzIvxBSi4',
+    },
+    {
+      title: 'Bulk SMS Campaign Creation',
+      category: 'SMS System',
+      duration: '6 min',
+      youtubeUrl: 'https://www.youtube.com/watch?v=5qap5aO4i9A',
+    },
+    {
+      title: 'Reports and Analytics Walkthrough',
+      category: 'Reporting',
+      duration: '10 min',
+      youtubeUrl: 'https://www.youtube.com/watch?v=Zi_XLOBDo_Y',
+    },
+    {
+      title: 'Dealer Portal and Lead Follow-Up',
+      category: 'Dealership',
+      duration: '7 min',
+      youtubeUrl: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
     },
   ],
   cta: {
@@ -77,9 +87,9 @@ export const blogsData = {
   slug: 'blogs',
   hero: {
     eyebrow: 'Resources · Blogs',
-    title: 'Blog',
+    title: 'Blogs',
     subtitle:
-      'Product updates, implementation insights, business technology thinking, and industry perspectives from the Automate IT Limited team.',
+      'Updates, implementation insight, and practical business technology articles from the Dynamic Technosoft team.',
     badges: ['Product Updates', 'Industry Insights', 'Implementation Tips'],
     color: 'green',
   },
@@ -90,48 +100,116 @@ export const blogsData = {
       'We publish regularly on topics that matter to our clients — from choosing the right ERP to understanding mobile-first strategies and digital transformation in specific sectors.',
     ],
   },
+  listing: {
+    label: 'Latest Articles',
+    heading: 'Browse our recent blogs',
+    description:
+      'Each post includes a quick summary and a details page so readers can open the full article. Additional posts appear with an animated see more button when the list is longer than six items.',
+  },
   featuredPosts: [
     {
+      slug: 'dynamic-academic-erp-reduces-school-admin-load',
       category: 'Product',
       title: 'How Dynamic Academic ERP Reduces Administrative Load in Schools',
       excerpt: 'A practical look at which modules deliver the most time savings for school administrators in their first year of use.',
       readTime: '6 min read',
       date: 'April 2026',
+      content: [
+        'Dynamic Academic ERP reduces manual coordination by connecting admissions, attendance, fee management, exam records, and parent communication inside one workflow.',
+        'Schools usually feel the first impact in recurring administrative work. Staff no longer need to re-enter the same student information across multiple registers, and reporting becomes much faster at the end of each term.',
+        'The biggest improvement often comes from visibility. Principals and coordinators can monitor pending fees, class attendance, and result publishing status from one system instead of collecting updates manually.',
+      ],
     },
     {
+      slug: 'healthcare-institutions-moving-to-integrated-erp',
       category: 'Industry',
       title: 'Why Nepali Healthcare Institutions Are Moving to Integrated ERP',
       excerpt: 'The operational pressures driving hospitals and clinics to adopt connected systems, and what to look for in a vendor.',
       readTime: '8 min read',
       date: 'March 2026',
+      content: [
+        'Hospitals and clinics are under growing pressure to serve more patients without increasing administrative friction between departments.',
+        'An integrated ERP helps connect registration, billing, pharmacy, diagnostics, and management reporting so teams can work from shared information.',
+        'When evaluating vendors, healthcare institutions should pay close attention to implementation support, training quality, reporting flexibility, and how easily the system adapts to real operational flow.',
+      ],
     },
     {
+      slug: 'common-erp-implementation-mistakes',
       category: 'Implementation',
       title: 'The Five Most Common ERP Implementation Mistakes (and How to Avoid Them)',
       excerpt: 'Insights from real deployments that help organizations plan better and set realistic expectations from day one.',
       readTime: '7 min read',
       date: 'February 2026',
+      content: [
+        'ERP implementation projects usually struggle when teams underestimate process mapping, training time, or internal ownership.',
+        'A successful rollout depends on having a clear champion inside the client organization, realistic milestone planning, and early alignment on what success should look like after launch.',
+        'The strongest implementations treat training, support, and process cleanup as part of delivery rather than afterthoughts.',
+      ],
     },
     {
+      slug: 'sms-vs-app-push-notifications',
       category: 'Technology',
       title: 'SMS vs. App Push Notifications: Choosing the Right Channel for Your Audience',
       excerpt: 'A comparison of communication strategies to help organizations reach their audience reliably and cost-effectively.',
       readTime: '5 min read',
       date: 'January 2026',
+      content: [
+        'SMS remains one of the most reliable communication channels when message urgency and reach matter more than rich interaction.',
+        'Push notifications work well when users already have the app installed and actively engage with it, especially for repeated reminders and in-app actions.',
+        'Many organizations benefit from using both channels strategically: SMS for critical notices and push notifications for lower-cost engagement.',
+      ],
     },
     {
+      slug: 'dynamic-ams-2-feature-overview',
       category: 'Product',
       title: 'What\'s New in Dynamic AMS 2.0: A Feature Overview',
       excerpt: 'An overview of the latest updates to our association management platform including the new member portal and reporting module.',
       readTime: '4 min read',
       date: 'December 2025',
+      content: [
+        'Dynamic AMS 2.0 introduces a cleaner member portal, improved renewal tracking, and stronger reporting for association administrators.',
+        'The updated interface helps members manage profiles, submit renewals, and stay informed about notices and events with fewer support requests.',
+        'For management teams, the enhanced dashboard makes it easier to identify renewal trends, membership status, and engagement activity.',
+      ],
     },
     {
+      slug: 'technology-roadmap-for-growing-organizations',
       category: 'Business',
       title: 'Building a Technology Roadmap for Small and Medium Organizations',
       excerpt: 'A framework for prioritizing digital investments when budget and team capacity are limited.',
       readTime: '9 min read',
       date: 'November 2025',
+      content: [
+        'A strong technology roadmap starts with business pain points, not a list of tools. Teams should identify which bottlenecks cost the most time, money, or customer confidence.',
+        'Once priorities are clear, investments can be staged so foundational systems come first and more advanced automation follows when the team is ready.',
+        'The best roadmaps balance ambition with adoption capacity, making sure each investment can actually be supported by the people who use it.',
+      ],
+    },
+    {
+      slug: 'why-training-matters-after-software-go-live',
+      category: 'Implementation',
+      title: 'Why Training Matters Even After Software Go-Live',
+      excerpt: 'Post-launch learning keeps teams confident, reduces support dependency, and helps organizations adopt advanced features sooner.',
+      readTime: '5 min read',
+      date: 'October 2025',
+      content: [
+        'Go-live is not the finish line for user learning. Teams usually need reinforcement as real operational scenarios appear after launch.',
+        'Follow-up training helps staff use the platform with confidence, especially when roles, reports, or approval flows become more advanced.',
+        'Organizations that continue learning after deployment tend to unlock more value from the same software investment.',
+      ],
+    },
+    {
+      slug: 'dealer-network-growth-through-local-partnerships',
+      category: 'Business',
+      title: 'Growing a Software Dealer Network Through Local Partnerships',
+      excerpt: 'How local partner relationships can expand market reach while maintaining service quality and customer trust.',
+      readTime: '6 min read',
+      date: 'September 2025',
+      content: [
+        'A healthy dealer network grows when product training, lead handling, and support expectations are clear from the beginning.',
+        'Local partnerships create trust because dealers understand their markets, communicate in context, and stay closer to prospects during decision-making.',
+        'The strongest programs combine revenue opportunity with practical enablement so dealers can represent the brand confidently.',
+      ],
     },
   ],
   categories: ['All', 'Product', 'Implementation', 'Industry', 'Technology', 'Business'],
@@ -145,19 +223,41 @@ export const testimonialsData = {
   slug: 'testimonials',
   hero: {
     eyebrow: 'Resources · Testimonials',
-    title: 'What Our Clients Say',
+    title: 'Testimonials',
     subtitle:
       'Real feedback from organizations that have used our products and services to improve operations, simplify administration, and support their teams more effectively.',
     badges: ['Verified Clients', 'Cross-Industry', 'Long-Term Partners'],
     color: 'amber',
   },
   intro: {
-    heading: 'Proof through experience, not just promise',
+    heading: 'See What Our Client Say\'s',
     paragraphs: [
-      'The most reliable signal of good software is how it performs in real daily use — not in demo environments. Our client feedback comes from organizations that rely on our systems for work that matters.',
-      'From schools managing thousands of students to hospitals coordinating multiple departments, the outcomes speak for the quality of our delivery.',
+      'Dynamic Technosoft is a recognized leader in the field of IT service providers providing comprehensive software development and web products for more than a decade.',
+      'Watch client stories and success videos to see how organizations describe their experience with our team, our products, and our support.',
     ],
   },
+  videoSection: {
+    label: 'Client Videos',
+    heading: 'Testimonials in motion',
+    description: 'Open any video to hear directly from our clients and partners. Each card includes a clickable YouTube video and a clear title.',
+  },
+  videos: [
+    {
+      title: 'School Client Experience with Dynamic Academic ERP',
+      client: 'ABC Higher Secondary School',
+      youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    },
+    {
+      title: 'Hospital Team Review of Dynamic Hospital ERP',
+      client: 'Greenfield Hospital & Research Center',
+      youtubeUrl: 'https://www.youtube.com/watch?v=aqz-KE-bpKQ',
+    },
+    {
+      title: 'Association Growth Story with Dynamic AMS',
+      client: 'Nepal Professionals Association',
+      youtubeUrl: 'https://www.youtube.com/watch?v=ysz5S6PUM-U',
+    },
+  ],
   testimonials: [
     {
       name: 'Ram Bahadur Shrestha',
@@ -237,6 +337,11 @@ export const mediaCoverageData = {
       'This page brings together press features, award recognitions, conference appearances, and milestone announcements.',
     ],
   },
+  coverageSection: {
+    label: 'Media Highlights',
+    heading: 'Selected media coverage',
+    description: 'Explore published mentions, interviews, and recognition pieces from external platforms and event organizers.',
+  },
   featured: [
     {
       outlet: 'Tech Khabar Nepal',
@@ -244,6 +349,7 @@ export const mediaCoverageData = {
       title: 'Automate IT Limited: Building Enterprise Software for Nepal\'s Growing Organizations',
       date: 'March 2026',
       excerpt: 'A profile piece on Automate IT Limited\'s journey from a small development firm to a recognized ERP and services provider across Nepal.',
+      link: 'https://example.com/media/tech-khabar-feature',
     },
     {
       outlet: 'Business 360',
@@ -251,6 +357,7 @@ export const mediaCoverageData = {
       title: 'Interview: How Automate IT Limited is Solving Real Operational Problems with Custom Software',
       date: 'January 2026',
       excerpt: 'An interview with the leadership team on product philosophy, growth strategy, and building software for the Nepali market.',
+      link: 'https://example.com/media/business-360-interview',
     },
     {
       outlet: 'Nepal Business Directory',
@@ -258,6 +365,7 @@ export const mediaCoverageData = {
       title: 'Best IT Solutions Provider Award 2025',
       date: 'December 2025',
       excerpt: 'Recognized as one of Nepal\'s leading IT solution providers in the small-to-medium enterprise segment.',
+      link: 'https://example.com/media/best-it-solutions-provider-award',
     },
     {
       outlet: 'IT Professional Nepal Conference',
@@ -265,6 +373,7 @@ export const mediaCoverageData = {
       title: 'Conference Presentation: ERP Adoption in Education Institutions',
       date: 'November 2025',
       excerpt: 'Automate IT Limited presented findings from ERP deployments across 20+ educational institutions at the annual IT conference.',
+      link: 'https://example.com/media/erp-adoption-conference',
     },
   ],
   milestones: [
@@ -284,18 +393,50 @@ export const dealershipData = {
   slug: 'dealership',
   hero: {
     eyebrow: 'Resources · Dealership',
-    title: 'Become a Dealer',
+    title: 'Dealership',
     subtitle:
-      'Partner with Automate IT Limited to bring our software solutions to your market — with training, commission structure, and marketing support built into the partnership.',
+      'We are seeking partners who share our interest in assisting us in our endeavor to transform the education industry.',
     badges: ['Revenue Sharing', 'Full Training', 'Co-Marketing Support'],
     color: 'teal',
   },
   intro: {
-    heading: 'Grow with a recognized technology brand',
+    heading: 'Provide the information below, and one of our experts will contact you within the next day.',
     paragraphs: [
-      'Our dealership program is designed for companies, consultants, and technology providers who want to expand their portfolio by offering Automate IT Limited\'s proven software solutions.',
-      'We equip our dealers with full product knowledge, sales tools, and technical support so they can confidently represent and sell our products in their local markets.',
+      'Dynamic Technosoft works with partners who want to expand access to modern software solutions and serve schools with confidence.',
+      'Submit your dealership request with your business details, target market, and current interest level so our partnership team can follow up quickly.',
     ],
+  },
+  heroVideo: {
+    title: 'Dealership Program Overview',
+    youtubeUrl: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+  },
+  form: {
+    heading: 'Dealership Request Form',
+    description: 'Fill in your details and our team will review your request.',
+    fields: [
+      { name: 'fullName', label: 'Full Name', placeholder: 'Enter your name', type: 'text' },
+      { name: 'email', label: 'Email', placeholder: 'Enter your email', type: 'email' },
+      { name: 'phone', label: 'Phone', placeholder: 'Enter your phone number', type: 'tel' },
+      { name: 'designation', label: 'Designation', placeholder: 'Enter your designation', type: 'text' },
+      { name: 'address', label: 'Address', placeholder: 'Enter your address', type: 'text' },
+      { name: 'organizationName', label: 'Organization Name', placeholder: 'Enter organization name', type: 'text' },
+      { name: 'organizationEmail', label: 'Organization Email', placeholder: 'Enter organization email', type: 'email' },
+      { name: 'organizationPhone', label: 'Organization Phone', placeholder: 'Enter organization phone', type: 'tel' },
+      { name: 'organizationAddress', label: 'Organization Address', placeholder: 'Enter organization address', type: 'text' },
+      { name: 'targetedSchools', label: 'Targeted Schools per month', placeholder: 'Enter targeted No. of Schools', type: 'text' },
+      { name: 'marketingMediums', label: 'What marketing mediums do you utilize?', placeholder: 'Enter your marketing mediums', type: 'text' },
+    ],
+    interestLabel: 'Please describe: your current interest level in becoming a Dynamic Technosoft dealer.',
+    interestOptions: [
+      'Highly Interested',
+      'Moderately Interested',
+      'Neutral/Exploratory Interested',
+      'Slightly Interested',
+      'Not Interested at This Time',
+    ],
+    messageLabel: 'Message',
+    messagePlaceholder: 'Write your message here',
+    submitLabel: 'Send',
   },
   benefits: [
     { icon: '💰', title: 'Competitive Commission', description: 'Earn attractive recurring commissions on every software license and service contract you close.' },
@@ -344,3 +485,7 @@ export const dealershipData = {
     text: 'Contact our partnerships team to discuss your market, your clients, and the right dealership tier for your business.',
   },
 };
+
+export function getBlogPostBySlug(slug) {
+  return blogsData.featuredPosts.find((post) => post.slug === slug);
+}
