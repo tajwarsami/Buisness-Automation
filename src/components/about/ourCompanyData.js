@@ -8,7 +8,7 @@ export const ourCompanyData = {
     eyebrow: 'About Us · Our Company',
     title: 'Our Company',
     subtitle:
-      'Automate IT Limitedis a Nepal-based technology company delivering practical software solutions, managed services, and digital infrastructure to growing organizations.',
+      'Automate IT Limitedis a Bangladesh-based technology company delivering practical software solutions, managed services, and digital infrastructure to growing organizations.',
     badges: ['Company Story', 'Delivery Culture', 'Long-Term Vision'],
   },
 
@@ -55,7 +55,7 @@ export const ourCompanyData = {
     {
       stat: '500+',
       label: 'Clients',
-      description: 'Organizations across Nepal trust our systems for daily operations.',
+      description: 'Organizations across Bangladesh trust our systems for daily operations.',
     },
     {
       stat: '98%',
@@ -70,7 +70,7 @@ export const ourCompanyData = {
   ],
 
   industries: [
-    { name: 'Education', icon: '🏫', description: 'Schools, colleges, and training institutes across Nepal.' },
+    { name: 'Education', icon: '🏫', description: 'Schools, colleges, and training institutes across Bangladesh.' },
     { name: 'Healthcare', icon: '🏥', description: 'Hospitals and clinics needing connected operational tools.' },
     { name: 'Business', icon: '🏢', description: 'SMEs and enterprises modernizing internal workflows.' },
     { name: 'Associations', icon: '🤲', description: 'Member-driven organizations wanting digital administration.' },

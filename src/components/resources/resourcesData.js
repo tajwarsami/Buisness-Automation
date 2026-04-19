@@ -123,7 +123,7 @@ export const blogsData = {
     {
       slug: 'healthcare-institutions-moving-to-integrated-erp',
       category: 'Industry',
-      title: 'Why Nepali Healthcare Institutions Are Moving to Integrated ERP',
+      title: 'Why Bangladeshi Healthcare Institutions Are Moving to Integrated ERP',
       excerpt: 'The operational pressures driving hospitals and clinics to adopt connected systems, and what to look for in a vendor.',
       readTime: '8 min read',
       date: 'March 2026',
@@ -254,7 +254,7 @@ export const testimonialsData = {
     },
     {
       title: 'Association Growth Story with Dynamic AMS',
-      client: 'Nepal Professionals Association',
+      client: 'Bangladesh Professionals Association',
       youtubeUrl: 'https://www.youtube.com/watch?v=ysz5S6PUM-U',
     },
   ],
@@ -262,7 +262,7 @@ export const testimonialsData = {
     {
       name: 'Ram Bahadur Shrestha',
       role: 'Principal',
-      organization: 'ABC Higher Secondary School, Kathmandu',
+      organization: 'ABC Higher Secondary School, Dhaka',
       rating: 5,
       text: 'Dynamic Academic ERP transformed the way we manage student records, fees, and results. What used to take our staff days at the end of term now happens in hours. The support team is always responsive and genuinely helpful.',
       product: 'Dynamic Academic ERP',
@@ -294,7 +294,7 @@ export const testimonialsData = {
     {
       name: 'Bimal Karki',
       role: 'General Secretary',
-      organization: 'Nepal Professionals Association',
+      organization: 'Bangladesh Professionals Association',
       rating: 5,
       text: 'Dynamic AMS digitized our entire membership lifecycle. Renewals are automated, members can update their own profiles, and our event management has become far more organized. Highly recommend for any association.',
       product: 'Dynamic AMS',
@@ -333,7 +333,7 @@ export const mediaCoverageData = {
   intro: {
     heading: 'Our story out in the world',
     paragraphs: [
-      'Over the years, Automate IT Limited has been covered by technology publications, business journals, and event organizers recognizing our contribution to Nepal\'s digital landscape.',
+      'Over the years, Automate IT Limited has been covered by technology publications, business journals, and event organizers recognizing our contribution to Bangladesh\'s digital landscape.',
       'This page brings together press features, award recognitions, conference appearances, and milestone announcements.',
     ],
   },
@@ -344,11 +344,11 @@ export const mediaCoverageData = {
   },
   featured: [
     {
-      outlet: 'Tech Khabar Nepal',
+      outlet: 'Tech Khabar Bangladesh',
       type: 'Feature Article',
-      title: 'Automate IT Limited: Building Enterprise Software for Nepal\'s Growing Organizations',
+      title: 'Automate IT Limited: Building Enterprise Software for Bangladesh\'s Growing Organizations',
       date: 'March 2026',
-      excerpt: 'A profile piece on Automate IT Limited\'s journey from a small development firm to a recognized ERP and services provider across Nepal.',
+      excerpt: 'A profile piece on Automate IT Limited\'s journey from a small development firm to a recognized ERP and services provider across Bangladesh.',
       link: 'https://example.com/media/tech-khabar-feature',
     },
     {
@@ -356,19 +356,19 @@ export const mediaCoverageData = {
       type: 'Interview',
       title: 'Interview: How Automate IT Limited is Solving Real Operational Problems with Custom Software',
       date: 'January 2026',
-      excerpt: 'An interview with the leadership team on product philosophy, growth strategy, and building software for the Nepali market.',
+      excerpt: 'An interview with the leadership team on product philosophy, growth strategy, and building software for the Bangladeshi market.',
       link: 'https://example.com/media/business-360-interview',
     },
     {
-      outlet: 'Nepal Business Directory',
+      outlet: 'Bangladesh Business Directory',
       type: 'Award',
       title: 'Best IT Solutions Provider Award 2025',
       date: 'December 2025',
-      excerpt: 'Recognized as one of Nepal\'s leading IT solution providers in the small-to-medium enterprise segment.',
+      excerpt: 'Recognized as one of Bangladesh\'s leading IT solution providers in the small-to-medium enterprise segment.',
       link: 'https://example.com/media/best-it-solutions-provider-award',
     },
     {
-      outlet: 'IT Professional Nepal Conference',
+      outlet: 'IT Professional Bangladesh Conference',
       type: 'Speaker',
       title: 'Conference Presentation: ERP Adoption in Education Institutions',
       date: 'November 2025',

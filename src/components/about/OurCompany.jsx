@@ -11,7 +11,7 @@ function CompanyVisual() {
       </div>
       <div className="oc-visual-card oc-vc-2">
         <span className="oc-vc-icon">📍</span>
-        <span>Kathmandu, Nepal</span>
+        <span>Dhaka, Bangladesh</span>
       </div>
       <div className="oc-visual-card oc-vc-3">
         <span className="oc-vc-icon">✅</span>

@@ -1,8 +1,8 @@
 'use client';
 import PageHero from './PageHero';
 
-const CLIENTS = [
-  { name: 'Nepal Rastra Bank', abbr: 'NRB', color: '#0057A8' },
+export const CLIENTS = [
+  { name: 'Bangladesh Rastra Bank', abbr: 'NRB', color: '#0057A8' },
   { name: 'FNCCI', abbr: 'FNCCI', color: '#0072c3' },
   { name: 'Godawari', abbr: 'GDW', color: '#0096D6' },
   { name: 'Little Buddha', abbr: 'LB', color: '#006fb8' },
@@ -11,12 +11,12 @@ const CLIENTS = [
   { name: 'JME', abbr: 'JME', color: '#0072c3' },
   { name: 'John Deere', abbr: 'JD', color: '#367C2B' },
   { name: 'GIZ', abbr: 'GIZ', color: '#E2001A' },
-  { name: 'Dabur Nepal', abbr: 'DNP', color: '#C41E3A' },
+  { name: 'Dabur Bangladesh', abbr: 'DNP', color: '#C41E3A' },
   { name: 'FWEAN', abbr: 'FWN', color: '#0057A8' },
   { name: 'CSI', abbr: 'CSI', color: '#0096D6' },
   { name: 'Hulas Steel', abbr: 'HLS', color: '#555' },
   { name: 'Asian Paints', abbr: 'AP', color: '#B31942' },
-  { name: 'Urban Nepal', abbr: 'URN', color: '#0072c3' },
+  { name: 'Urban Bangladesh', abbr: 'URN', color: '#0072c3' },
   { name: 'Tata Hitachi', abbr: 'TH', color: '#003087' },
   { name: 'Tests', abbr: 'TST', color: '#0096D6' },
   { name: 'KL Dugar', abbr: 'KLD', color: '#0057A8' },
@@ -53,7 +53,7 @@ export default function OurClientPageClient() {
             <span className="ocl-eyebrow">Who We Work With</span>
             <h2 className="ocl-heading">Meet Our Clients</h2>
             <p className="ocl-subtext">
-              From government institutions to private enterprises, schools, hospitals, and industry giants — we are proud to serve Nepal&apos;s most trusted organizations.
+              From government institutions to private enterprises, schools, hospitals, and industry giants — we are proud to serve Bangladesh&apos;s most trusted organizations.
             </p>
           </div>
           <div className="ocl-grid">

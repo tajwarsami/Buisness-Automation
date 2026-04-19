@@ -1,17 +1,26 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
-import { blogsData, tutorialsData } from '@/components/resources/resourcesData';
+import { useEffect, useRef, useState } from 'react';
+import { blogsData, testimonialsData, tutorialsData } from '@/components/resources/resourcesData';
 
-const tutorialLinks = [
-  { title: tutorialsData.videos[0].title, href: '/resources/tutorials' },
-  { title: tutorialsData.videos[1].title, href: '/resources/tutorials' },
-  { title: 'Watch Product Tutorials on YouTube', href: 'https://www.youtube.com/' },
-];
+function getYoutubeVideoId(url) {
+  const match = url.match(/(?:v=|youtu\.be\/|embed\/)([^&?/]+)/);
+  return match?.[1] ?? '';
+}
 
 export default function ImpactAndBlog() {
   const ref = useRef(null);
+  const [blogPage, setBlogPage] = useState(0);
+  const postsPerPage = 4;
+  const totalPages = Math.ceil(blogsData.featuredPosts.length / postsPerPage);
+  const tutorialVideo = tutorialsData.videos[0];
+  const testimonialVideo = testimonialsData.videos[0];
+  const visiblePosts = blogsData.featuredPosts.slice(
+    blogPage * postsPerPage,
+    blogPage * postsPerPage + postsPerPage,
+  );
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -29,47 +38,84 @@ export default function ImpactAndBlog() {
 
   return (
     <div ref={ref}>
-      <section id="trust-resources" className="impact-section impact-section-refined" aria-labelledby="trust-heading">
+      <section id="tutorial-center" className="impact-section impact-section-refined home-media-section" aria-labelledby="tutorial-center-heading">
         <div className="container">
-          <div className="section-header left animate-on-scroll">
-            <span className="section-label">Trusted By 2500+ Happy Customers</span>
-            <h2 className="section-h2" id="trust-heading">Our commitment to excellence</h2>
-            <p className="section-sub impact-sub-left">
-              Learn from quick tutorials, explore helpful resources, and move directly into the product and service pages that fit your need.
-            </p>
-          </div>
+          <div className="home-media-grid">
+            <div className="home-media-copy animate-on-scroll">
+              <span className="section-label">Product Tutorial Center</span>
+              <h2 className="section-h2" id="tutorial-center-heading">Product Tutorial Center</h2>
+              <p className="section-sub">
+                Learning videos, onboarding guidance, and quick product walkthroughs to help teams train faster and use every module with confidence.
+              </p>
+              <Link href="/tutorial" className="btn-secondary">Watch Now →</Link>
+            </div>
 
-          <div className="home-resource-grid">
-            {tutorialLinks.map((item, index) => {
-              const isExternal = item.href.startsWith('http');
-              return (
-                <Link
-                  key={item.title}
-                  href={item.href}
-                  className="home-resource-card animate-on-scroll"
-                  style={{ animationDelay: `${index * 0.05}s` }}
-                  target={isExternal ? '_blank' : undefined}
-                  rel={isExternal ? 'noopener noreferrer' : undefined}
-                >
-                  <span className="home-resource-kicker">{isExternal ? 'YouTube' : 'Tutorial'}</span>
-                  <h3>{item.title}</h3>
-                  <span className="product-learn">Open →</span>
-                </Link>
-              );
-            })}
+            <a className="home-video-preview animate-on-scroll" href={tutorialVideo.youtubeUrl} target="_blank" rel="noreferrer">
+              <div className="home-video-thumb">
+                <Image
+                  src={`https://img.youtube.com/vi/${getYoutubeVideoId(tutorialVideo.youtubeUrl)}/hqdefault.jpg`}
+                  alt={tutorialVideo.title}
+                  width={640}
+                  height={360}
+                  unoptimized
+                />
+                <span className="home-video-play">▶</span>
+              </div>
+              <div className="home-video-meta">
+                <span>Tutorial Preview</span>
+                <strong>{tutorialVideo.title}</strong>
+              </div>
+            </a>
           </div>
         </div>
       </section>
 
-      <section id="blog" className="blog-section blog-section-refined" aria-labelledby="blog-heading">
+      <section id="testimonials" className="impact-section impact-section-refined home-media-section home-media-section-alt" aria-labelledby="testimonials-heading">
+        <div className="container">
+          <div className="home-media-grid">
+            <div className="home-media-copy animate-on-scroll">
+              <span className="section-label">Customer Testimonials</span>
+              <h2 className="section-h2" id="testimonials-heading">Customer Testimonials</h2>
+              <p className="section-sub">
+                Watch success stories from clients who trust our products, our implementation process, and our long-term support.
+              </p>
+              <Link href="/testimonials" className="btn-secondary">Watch Now →</Link>
+            </div>
+
+            <a className="home-video-preview animate-on-scroll" href={testimonialVideo.youtubeUrl} target="_blank" rel="noreferrer">
+              <div className="home-video-thumb">
+                <Image
+                  src={`https://img.youtube.com/vi/${getYoutubeVideoId(testimonialVideo.youtubeUrl)}/hqdefault.jpg`}
+                  alt={testimonialVideo.title}
+                  width={640}
+                  height={360}
+                  unoptimized
+                />
+                <span className="home-video-play">▶</span>
+              </div>
+              <div className="home-video-meta">
+                <span>Video Testimonial</span>
+                <strong>{testimonialVideo.title}</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="blog" className="blog-section blog-section-refined home-blogs-section" aria-labelledby="blog-heading">
         <div className="container">
           <div className="section-header left animate-on-scroll">
-            <span className="section-label">Latest Blogs</span>
+            <span className="section-label">Blogs</span>
             <h2 className="section-h2" id="blog-heading">Recent updates and practical insights</h2>
+            <p className="section-sub">Blog cards are pulled from the existing blog source and shown four at a time.</p>
           </div>
-          <div className="blog-grid">
-            {blogsData.featuredPosts.slice(0, 3).map((post, index) => (
-              <article key={post.title} className="blog-card animate-on-scroll" style={{ animationDelay: `${index * 0.05}s` }}>
+
+          <div className="home-blog-grid">
+            {visiblePosts.map((post, index) => (
+              <article key={post.slug} className="blog-card animate-on-scroll home-blog-card" style={{ animationDelay: `${index * 0.05}s` }}>
+                <div className="home-blog-image">
+                  <span>{post.category}</span>
+                </div>
                 <div className="blog-content">
                   <p className="blog-date">{post.date} · {post.readTime}</p>
                   <h3 className="blog-title">{post.title}</h3>
@@ -77,6 +123,18 @@ export default function ImpactAndBlog() {
                   <Link href={`/resources/blogs/${post.slug}`} className="blog-read">Read More →</Link>
                 </div>
               </article>
+            ))}
+          </div>
+
+          <div className="home-blog-dots animate-on-scroll" aria-label="Blog pagination">
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                className={`home-blog-dot${blogPage === index ? ' active' : ''}`}
+                onClick={() => setBlogPage(index)}
+                aria-label={`Show blog slide ${index + 1}`}
+              />
             ))}
           </div>
         </div>

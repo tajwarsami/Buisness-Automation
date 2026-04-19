@@ -1,215 +1,145 @@
+'use client';
+
 import Link from 'next/link';
+import { useEffect, useRef } from 'react';
 import PageHero from '../PageHero';
 
-/* ─── Process step ─── */
-function ProcessStep({ step, title, description }) {
-  return (
-    <div className="svc-step">
-      <div className="svc-step-num">{step}</div>
-      <div className="svc-step-body">
-        <h4 className="svc-step-title">{title}</h4>
-        <p className="svc-step-desc">{description}</p>
+function ServiceVisual({ theme }) {
+  if (theme === 'software') {
+    return (
+      <div className="sv-mockup sv-software">
+        <div className="sv-soft-window">
+          <div className="sv-soft-bar"><span /><span /><span /></div>
+          <div className="sv-soft-code">
+            <div className="sv-code-line w-80" />
+            <div className="sv-code-line w-60 indent" />
+            <div className="sv-code-line w-90 indent" />
+            <div className="sv-code-line w-40" />
+          </div>
+        </div>
+        <div className="sv-soft-float sv-soft-cloud">☁️ Cloud Sync</div>
+        <div className="sv-soft-float sv-soft-shield">🛡️ Secure Data</div>
       </div>
-    </div>
-  );
-}
-
-/* ─── Tech pill ─── */
-function TechPill({ tech }) {
-  return <span className="svc-tech-pill">{tech}</span>;
-}
-
-/* ─── Feature / Highlight card ─── */
-function FeatureCard({ icon, title, text }) {
-  return (
-    <div className="svc-feature-card">
-      <div className="svc-feature-icon">{icon}</div>
-      <h4 className="svc-feature-title">{title}</h4>
-      <p className="svc-feature-text">{text}</p>
-    </div>
-  );
-}
-
-/* ─── Use case item ─── */
-function UseCaseItem({ text }) {
-  return (
-    <li className="svc-usecase-item">
-      <span className="svc-usecase-bullet" />
-      <span>{text}</span>
-    </li>
-  );
-}
-
-/**
- * Shared service page component.
- * data: one of the exports from servicesData.js
- * relatedLinks: array of {label, href, description}
- */
-export default function ServicePage({ data, relatedLinks = [] }) {
-  const { hero, intro, process, useCases, cta } = data;
-  const features = data.features || data.highlights || [];
-  const techStack = data.techStack || null;
-  const colorClass = `svc-color-${hero.color || 'blue'}`;
-
-  return (
-    <div className={`svc-page ${colorClass}`}>
-
-      {/* ── Hero ── */}
-      <PageHero
-        eyebrow={hero.eyebrow}
-        title={hero.title}
-        subtitle={hero.subtitle}
-        badges={hero.badges}
-        theme="teal"
-      >
-        <div className="ph-page-actions">
-          <Link href="/contact" className="ph-btn-primary">Start a Conversation</Link>
-          <Link href="/services" className="ph-btn-ghost">All Services</Link>
+    );
+  }
+  if (theme === 'mobile') {
+    return (
+      <div className="sv-mockup sv-mobile">
+        <div className="sv-phone sv-phone-back" />
+        <div className="sv-phone sv-phone-front">
+          <div className="sv-phone-notch" />
+          <div className="sv-phone-screen">
+            <div className="sv-app-header" />
+            <div className="sv-app-card" />
+            <div className="sv-app-card" />
+            <div className="sv-app-card" />
+          </div>
         </div>
-      </PageHero>
-
-      {/* ── Intro ── */}
-      <section className="svc-section svc-intro-section">
-        <div className="container">
-          <div className="svc-intro-grid">
-            <div className="svc-intro-copy">
-              <span className="svc-section-label">What This Service Involves</span>
-              <h2 className="svc-section-h2">{intro.heading}</h2>
-              {intro.paragraphs.map((p) => (
-                <p key={p.slice(0, 30)} className="svc-intro-p">{p}</p>
-              ))}
+        <div className="sv-mobile-badge">🚀 1M+ Downloads</div>
+      </div>
+    );
+  }
+  if (theme === 'webapp') {
+    return (
+      <div className="sv-mockup sv-webapp">
+        <div className="sv-browser">
+          <div className="sv-browser-bar"><span /><span /><span /></div>
+          <div className="sv-dashboard">
+            <div className="sv-sidebar">
+              <div className="sv-sidebar-item" />
+              <div className="sv-sidebar-item" />
+              <div className="sv-sidebar-item" />
             </div>
-            <div className="svc-intro-flow-card">
-              <div className="svc-intro-flow-bar" />
-              <div className="svc-intro-flow-content">
-                <span className="svc-intro-flow-label">Smooth Delivery</span>
-                <h3>Clear planning, practical execution, and long-term support.</h3>
-                <p>
-                  Our service pages now use a cleaner presentation that keeps the focus on the service itself
-                  instead of decorative stat boxes.
-                </p>
+            <div className="sv-main">
+              <div className="sv-stat-cards">
+                <div className="sv-stat-card" />
+                <div className="sv-stat-card" />
+                <div className="sv-stat-card" />
               </div>
+              <div className="sv-chart" />
             </div>
           </div>
         </div>
-      </section>
-
-      {/* ── Process ── */}
-      <section className="svc-section svc-process-section">
-        <div className="container">
-          <div className="svc-section-header">
-            <span className="svc-section-label">How It Works</span>
-            <h2 className="svc-section-h2">Our Delivery Process</h2>
-          </div>
-          <div className="svc-process-track">
-            {process.map((step, i) => (
-              <ProcessStep key={step.step} {...step} />
-            ))}
-          </div>
+        <div className="sv-web-badge">⚡ Real-time Sync</div>
+      </div>
+    );
+  }
+  if (theme === 'sms') {
+    return (
+      <div className="sv-mockup sv-sms">
+        <div className="sv-chat-window">
+          <div className="sv-chat-bubble sv-chat-left">Hi, your order has shipped!</div>
+          <div className="sv-chat-bubble sv-chat-right">Thanks!</div>
+          <div className="sv-chat-bubble sv-chat-left">Track it here: link.com</div>
         </div>
-      </section>
+        <div className="sv-sms-stats">
+          <div className="sv-sms-graph" />
+          <span className="sv-sms-deliv">99.9% Delivery Rate</span>
+        </div>
+      </div>
+    );
+  }
+  if (theme === 'hosting') {
+    return (
+      <div className="sv-mockup sv-hosting">
+        <div className="sv-domain-search">
+          <input type="text" value="yourcompany.com" readOnly />
+          <button type="button">Search</button>
+        </div>
+        <div className="sv-server-stack">
+          <div className="sv-server-rack"><span className="sv-light blink" /></div>
+          <div className="sv-server-rack"><span className="sv-light blink fast" /></div>
+          <div className="sv-server-rack"><span className="sv-light blink slow" /></div>
+        </div>
+        <div className="sv-trust-badge">🔒 Secure SSL</div>
+      </div>
+    );
+  }
+  return null;
+}
 
-      {/* ── Features / Highlights ── */}
-      {features.length > 0 && (
-        <section className="svc-section svc-features-section">
-          <div className="container">
-            <div className="svc-section-header svc-section-header-light">
-              <span className="svc-section-label-light">Key Strengths</span>
-              <h2 className="svc-section-h2-light">What Makes Our Approach Different</h2>
-            </div>
-            <div className="svc-features-grid">
-              {features.map((f) => (
-                <FeatureCard key={f.title} {...f} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+export default function ServicePage({ data }) {
+  const { submenuName, headline, shortDescription, features, buttonLabel, theme } = data;
+  const ref = useRef(null);
 
-      {/* ── Tech Stack ── */}
-      {techStack && (
-        <section className="svc-section svc-tech-section">
-          <div className="container">
-            <div className="svc-section-header">
-              <span className="svc-section-label">Technologies</span>
-              <h2 className="svc-section-h2">Tools & Technologies We Use</h2>
-            </div>
-            <div className="svc-tech-grid">
-              {Object.entries(techStack).map(([category, items]) => (
-                <div key={category} className="svc-tech-category">
-                  <h4 className="svc-tech-cat-title">{category.replace(/([A-Z])/g, ' $1').trim()}</h4>
-                  <div className="svc-tech-pills">
-                    {items.map((t) => <TechPill key={t} tech={t} />)}
-                  </div>
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    ref.current?.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className={`service-redesign-page theme-${theme}`} ref={ref}>
+      <PageHero title={submenuName} theme="teal" />
+
+      <section className="service-redesign-content container">
+        <div className="service-redesign-grid">
+          <div className="service-redesign-text animate-on-scroll">
+            <h2 className="service-redesign-headline">{headline}</h2>
+            <p className="service-redesign-desc">{shortDescription}</p>
+
+            <div className="service-redesign-features">
+              {features.map((f, i) => (
+                <div key={f.title} className="service-redesign-feature-item" style={{ animationDelay: `${i * 0.1}s` }}>
+                  <span className="sr-feature-icon">{f.icon}</span>
+                  <span className="sr-feature-title">{f.title}</span>
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-      )}
 
-      {/* ── Use Cases ── */}
-      <section className="svc-section svc-usecases-section">
-        <div className="container svc-usecases-inner">
-          <div className="svc-usecases-copy">
-            <span className="svc-section-label">Common Scenarios</span>
-            <h2 className="svc-section-h2">Who Uses This Service</h2>
-            <ul className="svc-usecase-list">
-              {useCases.map((uc) => (
-                <UseCaseItem key={uc.slice(0, 30)} text={uc} />
-              ))}
-            </ul>
+            <Link href="/contact" className="service-redesign-cta">
+              {buttonLabel}
+            </Link>
           </div>
-          <div className="svc-usecases-visual" aria-hidden="true">
-            <div className="svc-uv-window">
-              <div className="svc-uv-titlebar">
-                <div className="svc-uv-controls">
-                  <span /><span /><span />
-                </div>
-              </div>
-              <div className="svc-uv-content">
-                <div className="svc-uv-row svc-uv-row-lg" />
-                <div className="svc-uv-row svc-uv-row-md" />
-                <div className="svc-uv-row svc-uv-row-sm" />
-                <div className="svc-uv-row svc-uv-row-lg" />
-                <div className="svc-uv-row svc-uv-row-xs" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── Related services ── */}
-      {relatedLinks.length > 0 && (
-        <section className="svc-section svc-related-section">
-          <div className="container">
-            <div className="svc-section-header">
-              <span className="svc-section-label">Explore More</span>
-              <h2 className="svc-section-h2">Other Services</h2>
-            </div>
-            <div className="svc-related-grid">
-              {relatedLinks.map((item) => (
-                <Link key={item.href} href={item.href} className="svc-related-card">
-                  <h3>{item.label}</h3>
-                  <p>{item.description}</p>
-                  <span>Open →</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── CTA ── */}
-      <section className="svc-cta-section">
-        <div className="container svc-cta-inner">
-          <div className="svc-cta-copy">
-            <h2 className="svc-cta-heading">{cta.heading}</h2>
-            <p className="svc-cta-text">{cta.text}</p>
-          </div>
-          <div className="svc-cta-actions">
-            <Link href="/contact" className="btn-primary">Start a Conversation</Link>
-            <Link href="/contact" className="btn-outline-blue">Get a Quote</Link>
+          <div className="service-redesign-visual animate-on-scroll delay-1">
+            <ServiceVisual theme={theme} />
           </div>
         </div>
       </section>

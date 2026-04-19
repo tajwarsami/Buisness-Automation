@@ -12,7 +12,7 @@ export const accountingSolutionData = {
     heading: 'Use our cutting-edge accounting solution to gain control and transparency over your finances',
     paragraphs: [
       'Dynamic Accounting Solution software is designed to meet the specific needs of wholesalers, dealers, trading companies, manufacturing companies, and import-export companies. It includes the customized features businesses need for efficient daily financial operations.',
-      'Trusted by organizations such as Dabur Nepal, Hulas Steel, Dugar Group, Nissan Motors, Mahindra, John Deere, Godawari Steels, and Royal Enfield, the software supports more than 500 clients in making informed business decisions through better accounting visibility.',
+      'Trusted by organizations such as Dabur Bangladesh, Hulas Steel, Dugar Group, Nissan Motors, Mahindra, John Deere, Godawari Steels, and Royal Enfield, the software supports more than 500 clients in making informed business decisions through better accounting visibility.',
     ],
   },
   modules: [

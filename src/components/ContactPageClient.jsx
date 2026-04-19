@@ -9,7 +9,7 @@ const OFFICES = [
     icon: '🏢',
     phone: '051-526647/48, 9855021231',
     email: 'info@dynamic.net.np',
-    address: 'Beside Trimurti Cinema, Birgunj, Nepal',
+    address: 'Beside Trimurti Cinema, Dhaka, Bangladesh',
     color: '#0057A8',
   },
   {
@@ -17,27 +17,27 @@ const OFFICES = [
     icon: '🏙️',
     phone: '9801087091, 9851163652',
     email: 'info@dynamic.net.np',
-    address: 'B & S Complex, Shankhamul Marga, Kathmandu',
+    address: 'B & S Complex, Shankhamul Marga, Dhaka',
     color: '#0072c3',
   },
   {
-    name: 'Butwal Branch',
+    name: 'Dhaka Central Branch',
     icon: '📍',
     phone: '9857030577',
     email: 'info@dynamic.net.np',
-    address: 'Butwal, Traffic Chowk, Nepal',
+    address: 'Dhaka, Bangladesh',
     color: '#0096D6',
   },
   {
-    name: 'Itahari Branch',
+    name: 'Dhaka North Branch',
     icon: '📍',
     phone: '+977-9801050626',
     email: 'info@dynamic.net.np',
-    address: 'Dharan Line, Opposite Nepal Army Camp, Itahari-4, Sunsari, Nepal',
+    address: 'Dhaka, Bangladesh',
     color: '#00a8e8',
   },
   {
-    name: 'India Branch',
+    name: 'Bangladesh Branch',
     icon: '🌐',
     phone: '+91 85810 04142',
     email: 'info@dynamic.net.np',
@@ -72,7 +72,7 @@ export default function ContactPageClient() {
         eyebrow="Get In Touch"
         title="Contact Us"
         subtitle="You can contact us at any time for support. We value our customers more than anything & put our best to provide you with the best quality support."
-        badges={['24/7 Support', '5 Offices', 'Nepal & India']}
+        badges={['24/7 Support', '5 Offices', 'Bangladesh']}
         theme="blue"
       />
 

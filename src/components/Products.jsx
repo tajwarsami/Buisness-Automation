@@ -1,55 +1,38 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
+import { NAV_ITEMS } from '@/data/siteContent';
 
 const PRODUCT_DETAILS = {
   '/products/dynamic-academic-erp': {
-    category: 'Education',
-    desc: 'Academic management, exams, fees, HR, communication, and administration in one system.',
-    count: '500+ institutions',
-    icon: 'EDU',
+    summary: 'Admissions, academics, attendance, fees, exam routines, and parent communication in one platform.',
+    icon: 'AE',
   },
   '/products/hospital-erp': {
-    category: 'Healthcare',
-    desc: 'Hospital operations, patient records, billing, inventory, and service coordination.',
-    count: 'Hospital-ready',
-    icon: 'MED',
+    summary: 'Patient flow, billing, departments, records, and operational reporting for healthcare teams.',
+    icon: 'HE',
   },
   '/products/accounting-solution': {
-    category: 'Finance',
-    desc: 'Accounting control, reporting, reconciliation, ledgers, and business financial visibility.',
-    count: '500+ clients',
-    icon: 'ACC',
+    summary: 'Smarter accounting control with ledgers, billing, reconciliations, and financial statements.',
+    icon: 'AS',
   },
   '/products/hr-payroll': {
-    category: 'HR',
-    desc: 'Employee data, attendance, appraisal, and payroll processing with stronger accuracy.',
-    count: 'People operations',
+    summary: 'Attendance, employee records, leave, payroll generation, and approval-driven HR workflows.',
     icon: 'HR',
   },
   '/products/sms-system': {
-    category: 'Communication',
-    desc: 'Bulk messaging, alerts, customer updates, and campaign-based mobile engagement.',
-    count: 'Instant outreach',
-    icon: 'SMS',
+    summary: 'Bulk messaging, campaign delivery, alerts, and customer communication at scale.',
+    icon: 'SS',
   },
   '/products/dynamic-ams': {
-    category: 'Association',
-    desc: 'Membership, events, communication, voting, fundraising, and organizational workflows.',
-    count: 'AMS platform',
-    icon: 'AMS',
+    summary: 'Membership, events, renewals, notices, and association management from a single dashboard.',
+    icon: 'DA',
   },
 };
 
-import { useEffect, useMemo, useRef } from 'react';
-import { NAV_ITEMS } from '@/data/siteContent';
-
-const tabs = ['All', 'Education', 'Healthcare', 'Finance', 'HR', 'Communication', 'Association'];
-
 export default function Products() {
   const sectionRef = useRef(null);
-  const [activeTab, setActiveTab] = useState('All');
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -74,38 +57,19 @@ export default function Products() {
     }))
   ), [productLinks]);
 
-  const filteredCards = activeTab === 'All'
-    ? cards
-    : cards.filter((item) => item.category === activeTab);
-
   return (
     <section id="products" className="products-section products-section-refined" ref={sectionRef} aria-labelledby="products-heading">
       <div className="container">
         <div className="section-header left animate-on-scroll products-section-header-refined">
           <span className="section-label">Products</span>
-          <h2 className="section-h2" id="products-heading">Business software built for real daily work</h2>
+          <h2 className="section-h2" id="products-heading">Software products built for real operational work</h2>
           <p className="section-sub">
-            Explore focused products for education, healthcare, finance, HR, communication, and association management.
+            Explore all six product lines as a responsive card grid. Each card opens the related product page directly.
           </p>
         </div>
 
-        <div className="product-filter-row animate-on-scroll" role="tablist" aria-label="Product categories">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              type="button"
-              className={`tab-btn${activeTab === tab ? ' active' : ''}`}
-              onClick={() => setActiveTab(tab)}
-              role="tab"
-              aria-selected={activeTab === tab}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-
         <div className="product-grid product-grid-refined">
-          {filteredCards.map((item, index) => (
+          {cards.map((item, index) => (
             <Link
               key={item.href}
               href={item.href}
@@ -115,12 +79,10 @@ export default function Products() {
               <div className="product-card-topline" />
               <div className="product-card-head">
                 <span className="product-card-mark">{item.icon}</span>
-                <span className="product-category product-category-refined">{item.category}</span>
               </div>
               <h3 className="product-name">{item.label}</h3>
-              <p className="product-desc">{item.desc}</p>
+              <p className="product-desc">{item.summary ?? item.description}</p>
               <div className="product-card-foot">
-                <span className="product-count">{item.count}</span>
                 <span className="product-learn">Open page →</span>
               </div>
             </Link>

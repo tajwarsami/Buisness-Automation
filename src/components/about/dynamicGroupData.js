@@ -78,11 +78,11 @@ export const dynamicGroupData = {
   ],
 
   milestones: [
-    { year: '2013', event: 'Automate IT Limited founded in Kathmandu, Nepal.' },
+    { year: '2013', event: 'Automate IT Limited founded in Dhaka, Bangladesh.' },
     { year: '2015', event: 'First ERP system deployed for an education institution.' },
     { year: '2017', event: 'Expanded service offerings to include mobile applications and hosting.' },
     { year: '2019', event: 'Group structure formalized; additional business units launched.' },
-    { year: '2021', event: 'Reached 300+ active client organizations across Nepal.' },
+    { year: '2021', event: 'Reached 300+ active client organizations across Bangladesh.' },
     { year: '2023', event: 'Launched Dynamic AMS and expanded association management capabilities.' },
     { year: '2025', event: 'Group-wide digital transformation initiative for internal operations.' },
   ],

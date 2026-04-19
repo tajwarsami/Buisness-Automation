@@ -2,17 +2,17 @@
 import { useState, useEffect, useRef } from 'react';
 
 const JOBS = [
-  { title: 'Software Developer (.NET / AngularJS)', dept: 'Engineering', location: 'Kathmandu | Birgunj' },
-  { title: 'Business Development Executive', dept: 'Sales', location: 'Kathmandu (Multiple)' },
-  { title: 'Technical Support Engineer', dept: 'Support', location: 'Kathmandu | Birgunj | Pokhara' },
+  { title: 'Software Developer (.NET / AngularJS)', dept: 'Engineering', location: 'Dhaka | Dhaka' },
+  { title: 'Business Development Executive', dept: 'Sales', location: 'Dhaka (Multiple)' },
+  { title: 'Technical Support Engineer', dept: 'Support', location: 'Dhaka | Dhaka | Pokhara' },
 ];
 
 const INFO = [
-  { label: 'Headquarters', value: 'B&S Complex, 2nd Floor, Sankhamul Road,\nNew Baneshwor, Kathmandu, Nepal', icon: 'pin' },
-  { label: 'Branch Offices', value: 'Birgunj · Pokhara · Butwal · Dhangadhi · Biratnagar', icon: 'pin' },
+  { label: 'Headquarters', value: 'B&S Complex, 2nd Floor, Sankhamul Road,\nNew Baneshwor, Dhaka, Bangladesh', icon: 'pin' },
+  { label: 'Branch Offices', value: 'Dhaka · Pokhara · Dhaka · Dhangadhi · Biratnagar', icon: 'pin' },
   { label: 'Phone', value: '+977-9851163652 | +977-9801050626\nHotline: +977-9855021231', icon: 'phone' },
   { label: 'Email', value: 'info@dynamic.net.np', icon: 'mail', isLink: true },
-  { label: 'Office Hours', value: 'Sunday–Friday, 9:00 AM – 6:00 PM (Nepal Time)', icon: 'clock' },
+  { label: 'Office Hours', value: 'Sunday–Friday, 9:00 AM – 6:00 PM (Bangladesh Time)', icon: 'clock' },
 ];
 
 const PinIcon = () => <svg width="20" height="20" fill="none" stroke="#0057A8" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>;
@@ -59,8 +59,8 @@ export default function CareersAndContact() {
           <div className="careers-grid">
             <div>
               <span className="section-label">CAREERS</span>
-              <h2 className="section-h2" id="careers-heading" style={{marginTop:'12px'}}>Join Nepal&apos;s Leading IT Company</h2>
-              <p className="about-body">Be part of a team of 200+ passionate professionals driving digital transformation across Nepal. We offer competitive salaries, growth opportunities, and the chance to work on impactful enterprise projects.</p>
+              <h2 className="section-h2" id="careers-heading" style={{marginTop:'12px'}}>Join Bangladesh&apos;s Leading IT Company</h2>
+              <p className="about-body">Be part of a team of 200+ passionate professionals driving digital transformation across Bangladesh. We offer competitive salaries, growth opportunities, and the chance to work on impactful enterprise projects.</p>
             </div>
             <div className="culture-stats">
               {[['200+','Team Members'],['5+','Office Locations'],['Growth','Culture'],['Work-Life','Balance']].map(([n,l],i) => (
@@ -122,7 +122,7 @@ export default function CareersAndContact() {
               </div>
               <div className="map-placeholder">
                 <svg width="36" height="36" fill="none" stroke="#0057A8" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <p>B&amp;S Complex, Sankhamul Road, New Baneshwor, Kathmandu</p>
+                <p>B&amp;S Complex, Sankhamul Road, New Baneshwor, Dhaka</p>
                 <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">View on Google Maps →</a>
               </div>
             </div>
