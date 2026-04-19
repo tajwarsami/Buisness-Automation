@@ -579,7 +579,7 @@ export const ABOUT_DETAIL_PAGES = {
         position: 'Chief Executive Officer',
         photo: '',
         speech: 'For many years we have witnessed consistent growth and achieved long-term success.',
-        fullSpeech: 'For the last decade, Dynamic Technosoft has provided the Nepali market with unique IT services that have allowed various businesses to maximize their profit. For many years we have witnessed consistent growth and achieved long-term success.',
+        fullSpeech: 'For the last decade, Dynamic Technosoft has provided the Bangladeshi market with unique IT services that have allowed various businesses to maximize their profit. For many years we have witnessed consistent growth and achieved long-term success.',
         summary: '',
       },
       {
@@ -608,7 +608,7 @@ export const ABOUT_DETAIL_PAGES = {
     badgeItems: [],
     introTitle: 'Dynamic Technosoft: Your Premier IT Service Provider',
     introText: [
-      'Dynamic Technosoft is a renowned leader in the IT services industry, with a track record of over a decade, delivering comprehensive software development and web solutions. Our commitment extends to clients in both the Nepali and international markets, as we endeavor to tackle complex challenges on a global scale.',
+      'Dynamic Technosoft is a renowned leader in the IT services industry, with a track record of over a decade, delivering comprehensive software development and web solutions. Our commitment extends to clients in both the Bangladeshi and international markets, as we endeavor to tackle complex challenges on a global scale.',
       'Our wealth of experience enables us to drive digital innovations that not only achieve exceptional business outcomes but also elevate performance and competitiveness for our valued customers and stakeholders.',
     ],
     showCta: false,
@@ -616,7 +616,7 @@ export const ABOUT_DETAIL_PAGES = {
     sections: [
       {
         title: 'One-Stop Shop Convenience',
-        text: 'Dynamic Technosoft pioneers the one-stop-shop concept, empowering our clients to conveniently outsource solutions for all their diverse needs. Our diverse range of services includes ERP/Customized Software Development, Mobile App Development, Website Development, Bulk SMS Solutions, Domain Registration and Web Hosting, as well as Online Attendance Solutions. With a network spanning 7 provinces and over 50 dealer connections throughout Nepal, we have cultivated an extensive partner ecosystem that fosters collaboration and harnesses technology independence.',
+        text: 'Dynamic Technosoft pioneers the one-stop-shop concept, empowering our clients to conveniently outsource solutions for all their diverse needs. Our diverse range of services includes ERP/Customized Software Development, Mobile App Development, Website Development, Bulk SMS Solutions, Domain Registration and Web Hosting, as well as Online Attendance Solutions. With a network spanning 7 provinces and over 50 dealer connections throughout Bangladesh, we have cultivated an extensive partner ecosystem that fosters collaboration and harnesses technology independence.',
       },
       {
         title: 'Our Vision for the Future',
@@ -624,7 +624,7 @@ export const ABOUT_DETAIL_PAGES = {
       },
       {
         title: 'More Than IT Services',
-        text: 'Dynamic Technosoft transcends being a mere IT service provider. With our Dynamic vision, we are on a mission to digitize Nepal and drive economic prosperity. Our groundbreaking products such as Academic ERP and Hospital ERP are revolutionizing vital healthcare and educational institutions, enabling them to offer superior services. As an IT service provider, we understand the pivotal role that technology plays in uplifting businesses. We eagerly anticipate the opportunity to become your trusted partner on the road to success.',
+        text: 'Dynamic Technosoft transcends being a mere IT service provider. With our Dynamic vision, we are on a mission to digitize Bangladesh and drive economic prosperity. Our groundbreaking products such as Academic ERP and Hospital ERP are revolutionizing vital healthcare and educational institutions, enabling them to offer superior services. As an IT service provider, we understand the pivotal role that technology plays in uplifting businesses. We eagerly anticipate the opportunity to become your trusted partner on the road to success.',
       },
       {
         title: 'Our Mission: Leading with Vision, Performance, & Integrity',
