@@ -101,14 +101,16 @@ export default function Navbar() {
                       }
                     }}
                   >
-                    <Link
-                      href={item.href}
-                      className={`nav-link${active ? ' active' : ''}`}
+                    <button
+                      type="button"
+                      className={`nav-link nav-link-btn${active ? ' active' : ''}`}
                       role="menuitem"
-                      onClick={closeMenus}
+                      aria-haspopup="true"
+                      aria-expanded={isDropdownOpen}
+                      onClick={() => setOpenDropdown(isDropdownOpen ? null : item.href)}
                     >
                       {item.label} <span className="nav-caret">+</span>
-                    </Link>
+                    </button>
                     <div className="dropdown" role="menu">
                       {item.children.map((child) => (
                         <Link
@@ -176,7 +178,7 @@ export default function Navbar() {
                     setOpenAcc((current) => current === item.href ? null : item.href);
                   }}
                 >
-                  <Link href={item.href} onClick={closeMenus}>{item.label}</Link>
+                  <span className="mobile-nav-label">{item.label}</span>
                   <span className={`mobile-acc-icon${isOpen ? ' open' : ''}`}>+</span>
                 </div>
                 <div className={`mobile-sub-menu${isOpen ? ' open' : ''}`}>
