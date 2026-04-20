@@ -1,105 +1,249 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import PageHero from '../PageHero';
 
-function ServiceVisual({ theme }) {
+function ServiceVisual({ theme, side = 'left' }) {
   if (theme === 'software') {
     return (
-      <div className="sv-mockup sv-software">
-        <div className="sv-soft-window">
-          <div className="sv-soft-bar"><span /><span /><span /></div>
-          <div className="sv-soft-code">
-            <div className="sv-code-line w-80" />
-            <div className="sv-code-line w-60 indent" />
-            <div className="sv-code-line w-90 indent" />
-            <div className="sv-code-line w-40" />
+      <div className={`svc-story-visual svc-story-visual-software svc-story-${side}`} aria-hidden="true">
+        <div className="svc-window-card">
+          <div className="svc-window-bar"><span /><span /><span /></div>
+          <div className="svc-window-body">
+            <div className="svc-code-row long" />
+            <div className="svc-code-row mid" />
+            <div className="svc-code-row short" />
+            <div className="svc-code-row long" />
           </div>
         </div>
-        <div className="sv-soft-float sv-soft-cloud">☁️ Cloud Sync</div>
-        <div className="sv-soft-float sv-soft-shield">🛡️ Secure Data</div>
+        <div className="svc-floating-note svc-note-a">Secure Build</div>
+        <div className="svc-floating-note svc-note-b">Agile Sprint</div>
       </div>
     );
   }
+
   if (theme === 'mobile') {
     return (
-      <div className="sv-mockup sv-mobile">
-        <div className="sv-phone sv-phone-back" />
-        <div className="sv-phone sv-phone-front">
-          <div className="sv-phone-notch" />
-          <div className="sv-phone-screen">
-            <div className="sv-app-header" />
-            <div className="sv-app-card" />
-            <div className="sv-app-card" />
-            <div className="sv-app-card" />
+      <div className={`svc-story-visual svc-story-visual-mobile svc-story-${side}`} aria-hidden="true">
+        <div className="svc-phone-stack">
+          <div className="svc-phone-card svc-phone-back" />
+          <div className="svc-phone-card svc-phone-front">
+            <div className="svc-phone-notch" />
+            <div className="svc-phone-screen">
+              <div className="svc-phone-header" />
+              <div className="svc-phone-tile" />
+              <div className="svc-phone-tile" />
+              <div className="svc-phone-tile small" />
+            </div>
           </div>
         </div>
-        <div className="sv-mobile-badge">🚀 1M+ Downloads</div>
       </div>
     );
   }
+
   if (theme === 'webapp') {
     return (
-      <div className="sv-mockup sv-webapp">
-        <div className="sv-browser">
-          <div className="sv-browser-bar"><span /><span /><span /></div>
-          <div className="sv-dashboard">
-            <div className="sv-sidebar">
-              <div className="sv-sidebar-item" />
-              <div className="sv-sidebar-item" />
-              <div className="sv-sidebar-item" />
-            </div>
-            <div className="sv-main">
-              <div className="sv-stat-cards">
-                <div className="sv-stat-card" />
-                <div className="sv-stat-card" />
-                <div className="sv-stat-card" />
+      <div className={`svc-story-visual svc-story-visual-webapp svc-story-${side}`} aria-hidden="true">
+        <div className="svc-browser-card">
+          <div className="svc-window-bar"><span /><span /><span /></div>
+          <div className="svc-browser-layout">
+            <div className="svc-browser-sidebar" />
+            <div className="svc-browser-main">
+              <div className="svc-browser-panels">
+                <div />
+                <div />
+                <div />
               </div>
-              <div className="sv-chart" />
+              <div className="svc-browser-chart" />
             </div>
           </div>
         </div>
-        <div className="sv-web-badge">⚡ Real-time Sync</div>
       </div>
     );
   }
+
   if (theme === 'sms') {
     return (
-      <div className="sv-mockup sv-sms">
-        <div className="sv-chat-window">
-          <div className="sv-chat-bubble sv-chat-left">Hi, your order has shipped!</div>
-          <div className="sv-chat-bubble sv-chat-right">Thanks!</div>
-          <div className="sv-chat-bubble sv-chat-left">Track it here: link.com</div>
-        </div>
-        <div className="sv-sms-stats">
-          <div className="sv-sms-graph" />
-          <span className="sv-sms-deliv">99.9% Delivery Rate</span>
+      <div className={`svc-story-visual svc-story-visual-sms svc-story-${side}`} aria-hidden="true">
+        <div className="svc-sms-board">
+          <div className="svc-sms-bubble left" />
+          <div className="svc-sms-bubble right" />
+          <div className="svc-sms-bubble left wide" />
         </div>
       </div>
     );
   }
+
   if (theme === 'hosting') {
     return (
-      <div className="sv-mockup sv-hosting">
-        <div className="sv-domain-search">
-          <input type="text" value="yourcompany.com" readOnly />
-          <button type="button">Search</button>
+      <div className={`svc-story-visual svc-story-visual-hosting svc-story-${side}`} aria-hidden="true">
+        <div className="svc-hosting-shell">
+          <div className="svc-domain-pill">yourdomain.com</div>
+          <div className="svc-server-column">
+            <div className="svc-server-rack" />
+            <div className="svc-server-rack" />
+            <div className="svc-server-rack" />
+          </div>
         </div>
-        <div className="sv-server-stack">
-          <div className="sv-server-rack"><span className="sv-light blink" /></div>
-          <div className="sv-server-rack"><span className="sv-light blink fast" /></div>
-          <div className="sv-server-rack"><span className="sv-light blink slow" /></div>
-        </div>
-        <div className="sv-trust-badge">🔒 Secure SSL</div>
       </div>
     );
   }
+
   return null;
 }
 
+function StorySection({ section, theme, reverse = false }) {
+  return (
+    <section className="svc-section">
+      <div className={`container svc-story-grid${reverse ? ' is-reverse' : ''}`}>
+        <div className="svc-story-media animate-on-scroll">
+          <ServiceVisual theme={theme} side={reverse ? 'right' : 'left'} />
+        </div>
+        <div className="svc-story-copy animate-on-scroll">
+          <span className="svc-section-kicker">{section.label}</span>
+          <h2 className="svc-section-title">{section.heading}</h2>
+          {section.paragraphs.map((paragraph) => (
+            <p key={paragraph} className="svc-section-text">{paragraph}</p>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SoftwareFeatureTree({ features }) {
+  return (
+    <div className="svc-tree-grid">
+      {features.map((feature) => (
+        <article key={feature.title} className="svc-tree-card">
+          <h3>{feature.title}</h3>
+          <p>{feature.description}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function MobileFeatureNodes({ title, features }) {
+  const topRow = features.slice(0, 3);
+  const bottomRow = features.slice(3, 6);
+
+  return (
+    <div className="svc-mobile-feature-layout">
+      <div className="svc-mobile-feature-row">
+        {topRow.map((feature) => (
+          <article key={feature.title} className="svc-mobile-hex-card">
+            <div className="svc-mobile-hex-inner">
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="svc-mobile-feature-core">
+        <div className="svc-mobile-core-panel">
+          <div className="svc-mobile-core-copy">
+            <span>Mobile App</span>
+            <strong>{title}</strong>
+          </div>
+          <div className="svc-mobile-core-device">
+            <div className="svc-mobile-core-phone">
+              <div className="svc-mobile-core-notch" />
+              <div className="svc-mobile-core-screen">
+                <div className="svc-mobile-core-bar" />
+                <div className="svc-mobile-core-card" />
+                <div className="svc-mobile-core-card small" />
+                <div className="svc-mobile-core-card" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="svc-mobile-feature-row svc-mobile-feature-row-bottom">
+        {bottomRow.map((feature) => (
+          <article key={feature.title} className="svc-mobile-hex-card">
+            <div className="svc-mobile-hex-inner">
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function WebFeatureFlow({ features }) {
+  return (
+    <div className="svc-web-flow">
+      {features.map((feature, index) => (
+        <article key={feature.title} className="svc-web-flow-card">
+          <span className="svc-web-flow-step">{String(index + 1).padStart(2, '0')}</span>
+          <h3>{feature.title}</h3>
+          <p>{feature.description}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function SmsFeatureCards({ features }) {
+  return (
+    <div className="svc-sms-card-grid">
+      {features.map((feature) => (
+        <article key={feature.title} className="svc-sms-card">
+          <div className="svc-sms-card-icon">{feature.icon}</div>
+          <h3>{feature.title}</h3>
+          <p>{feature.description}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function HostingChecklist({ features }) {
+  return (
+    <div className="svc-hosting-list">
+      {features.map((feature, index) => (
+        <article key={feature.title} className="svc-hosting-item">
+          <div className="svc-hosting-count">{String(index + 1).padStart(2, '0')}</div>
+          <div>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function FeatureSection({ data }) {
+  const { featureSectionTitle, featureSectionLabel, featureStyle, features, headline } = data;
+
+  return (
+    <section className="svc-section svc-section-features">
+      <div className="container">
+        <div className="svc-section-head animate-on-scroll">
+          <span className="svc-section-kicker">{featureSectionLabel}</span>
+          <h2 className="svc-section-title">{featureSectionTitle}</h2>
+        </div>
+
+        <div className="animate-on-scroll">
+          {featureStyle === 'mobile-nodes' && <MobileFeatureNodes title={headline} features={features} />}
+          {featureStyle === 'web-flow' && <WebFeatureFlow features={features} />}
+          {featureStyle === 'sms-cards' && <SmsFeatureCards features={features} />}
+          {featureStyle === 'hosting-checklist' && <HostingChecklist features={features} />}
+          {featureStyle === 'tree-cards' && <SoftwareFeatureTree features={features} />}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function ServicePage({ data }) {
-  const { submenuName, headline, shortDescription, features, buttonLabel, theme } = data;
+  const { submenuName, shortDescription, theme, introSection, supportSection } = data;
   const ref = useRef(null);
 
   useEffect(() => {
@@ -109,40 +253,19 @@ export default function ServicePage({ data }) {
           entry.target.classList.add('is-visible');
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.12 });
+
     ref.current?.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   return (
     <div className={`service-redesign-page theme-${theme}`} ref={ref}>
-      <PageHero title={submenuName} theme="teal" />
+      <PageHero title={submenuName} subtitle={shortDescription} theme="teal" compact />
 
-      <section className="service-redesign-content container">
-        <div className="service-redesign-grid">
-          <div className="service-redesign-text animate-on-scroll">
-            <h2 className="service-redesign-headline">{headline}</h2>
-            <p className="service-redesign-desc">{shortDescription}</p>
-
-            <div className="service-redesign-features">
-              {features.map((f, i) => (
-                <div key={f.title} className="service-redesign-feature-item" style={{ animationDelay: `${i * 0.1}s` }}>
-                  <span className="sr-feature-icon">{f.icon}</span>
-                  <span className="sr-feature-title">{f.title}</span>
-                </div>
-              ))}
-            </div>
-
-            <Link href="/contact" className="service-redesign-cta">
-              {buttonLabel}
-            </Link>
-          </div>
-
-          <div className="service-redesign-visual animate-on-scroll delay-1">
-            <ServiceVisual theme={theme} />
-          </div>
-        </div>
-      </section>
+      <StorySection section={introSection} theme={theme} />
+      <FeatureSection data={data} />
+      <StorySection section={supportSection} theme={theme} reverse />
     </div>
   );
 }
