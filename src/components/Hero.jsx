@@ -6,7 +6,6 @@ import Link from 'next/link';
 const SLIDES = [
   {
     step: '1/3',
-    eyebrow: 'Academic ERP',
     title: 'Academic ERP',
     sub: 'A complete academic platform for admissions, fees, attendance, exams, communication, and everyday institutional operations.',
     cta1: { label: 'Read More', href: '/products/academic-erp' },
@@ -16,7 +15,6 @@ const SLIDES = [
   },
   {
     step: '2/3',
-    eyebrow: 'Accounting Solution',
     title: 'Accounting Solution',
     sub: 'Bring ledgers, billing, reporting, reconciliation, and financial visibility into one reliable accounting workflow.',
     cta1: { label: 'Read More', href: '/products/accounting-solution' },
@@ -26,7 +24,6 @@ const SLIDES = [
   },
   {
     step: '3/3',
-    eyebrow: 'HR & Payroll Management',
     title: 'HR & Payroll Management',
     sub: 'Manage employee records, attendance, leave, payroll, and approvals with a smoother HR operation from one dashboard.',
     cta1: { label: 'Read More', href: '/products/hr-and-payroll-management' },
@@ -87,9 +84,6 @@ export default function Hero() {
         onMouseLeave={(event) => endDrag(event.clientX)}
       >
         <div className="hero-blue-left" key={`left-${active}`}>
-          <div className="hero-blue-eyebrow">
-            <span className="hero-blue-dot" /> {slide.eyebrow}
-          </div>
           <h1 className="hero-blue-h1">{slide.title}</h1>
           <p className="hero-blue-sub">{slide.sub}</p>
           
