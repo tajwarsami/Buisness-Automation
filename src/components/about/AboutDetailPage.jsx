@@ -45,11 +45,10 @@ export default function AboutDetailPage({ page, relatedLinks = [] }) {
     <div className="about-detail-page">
       {showHero && (
         <PageHero
-          eyebrow="About Us"
           title={page.heroTitle}
           subtitle={page.heroSubtitle}
-          badges={page.badgeItems ?? []}
           theme="navy"
+          compact
         />
       )}
 

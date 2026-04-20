@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import PageHero from '../PageHero';
-import { ourTeamData as d } from './ourTeamData';
 import { ABOUT_DETAIL_PAGES } from '@/data/siteContent';
 
 function ProfileAvatar({ member }) {
@@ -18,7 +17,6 @@ function ProfileAvatar({ member }) {
 }
 
 export default function OurTeam() {
-  const { hero } = d;
   const teamPage = ABOUT_DETAIL_PAGES['our-team'];
   const [selectedMemberId, setSelectedMemberId] = useState(teamPage.teamMembers?.[0]?.id ?? null);
   const [expandedMemberId, setExpandedMemberId] = useState(null);
@@ -38,11 +36,10 @@ export default function OurTeam() {
   return (
     <div className="ot-page">
       <PageHero
-        eyebrow={hero.eyebrow}
-        title={hero.title}
-        subtitle={hero.subtitle}
-        badges={hero.badges}
+        title="Our Team"
+        subtitle="Designers, developers, implementation specialists, and support professionals working together to deliver reliable technology and service."
         theme="navy"
+        compact
       />
 
       {teamPage.teamMembers?.length > 0 && primaryMember && (

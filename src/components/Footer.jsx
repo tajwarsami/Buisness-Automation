@@ -33,9 +33,6 @@ export default function Footer() {
               </svg>
               <span>Automate IT Limited</span>
             </div>
-            <p className="dn-footer-desc">
-              Bangladesh&apos;s leading ERP and software company. Delivering dependable digital products and services to 2,500+ organizations since 2009.
-            </p>
             <div className="dn-footer-social">
               <a href="#" aria-label="Facebook" className="dn-social-btn">f</a>
               <a href="#" aria-label="LinkedIn" className="dn-social-btn">in</a>

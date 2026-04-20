@@ -1,28 +1,8 @@
 import Link from 'next/link';
-
-function AbstractVisual() {
-  return (
-    <div className="route-visual-card" aria-hidden="true">
-      <div className="route-visual-circle route-visual-circle-lg"></div>
-      <div className="route-visual-circle route-visual-circle-sm"></div>
-      <div className="route-visual-screen">
-        <div className="route-visual-topbar"></div>
-        <div className="route-visual-row"></div>
-        <div className="route-visual-row route-visual-row-short"></div>
-        <div className="route-visual-grid">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
-  );
-}
+import PageHero from './PageHero';
 
 export default function RoutePageTemplate({
   title,
-  eyebrow,
   summary,
   introTitle,
   introText,
@@ -32,30 +12,10 @@ export default function RoutePageTemplate({
   ctaTitle,
   ctaText,
   relatedLinks = [],
-  badgeItems = [],
 }) {
   return (
     <>
-      <section className="route-hero">
-        <div className="route-hero-wave"></div>
-        <div className="route-hero-accent route-hero-accent-left"></div>
-        <div className="route-hero-accent route-hero-accent-right"></div>
-        <div className="container route-hero-inner">
-          <div className="route-hero-copy">
-            <span className="route-eyebrow">{eyebrow}</span>
-            <h1 className="route-title">{title}</h1>
-            <p className="route-summary">{summary}</p>
-            {badgeItems.length > 0 && (
-              <div className="route-badges">
-                {badgeItems.map((item) => (
-                  <span key={item} className="route-badge">{item}</span>
-                ))}
-              </div>
-            )}
-          </div>
-          <AbstractVisual />
-        </div>
-      </section>
+      <PageHero title={title} subtitle={summary} theme="blue" compact />
 
       <section className="route-content">
         <div className="container">

@@ -84,7 +84,7 @@ export default function Tutorials() {
 
   return (
     <div className="resource-clean-page tutorials-page">
-      <PageHero title={hero.title} theme="violet" />
+      <PageHero title={hero.title} subtitle={hero.subtitle} theme="violet" compact />
 
       <section className="resource-clean-section">
         <div className="container">

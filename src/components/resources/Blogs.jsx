@@ -56,7 +56,7 @@ export default function Blogs() {
   return (
     <div className="resource-clean-page blogs-page">
 
-      <PageHero title={hero.title} theme="blue" />
+      <PageHero title={hero.title} subtitle={hero.subtitle} theme="blue" compact />
 
       {/* ── Grid ── */}
       <section className="blogs-grid-section">

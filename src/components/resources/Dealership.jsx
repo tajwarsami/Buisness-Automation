@@ -94,7 +94,7 @@ export default function Dealership() {
   return (
     <div className="resource-clean-page deal-page">
 
-      <PageHero title={hero.title} theme="teal" />
+      <PageHero title={hero.title} subtitle={hero.subtitle} theme="teal" compact />
 
       {/* ── Intro ── */}
       <div className="deal-intro-strip">

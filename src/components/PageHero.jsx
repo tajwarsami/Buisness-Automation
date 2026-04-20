@@ -19,6 +19,7 @@ export default function PageHero({
   badges = [],
   stats = [],
   theme = 'blue',
+  compact = false,
   children,
 }) {
   /* Build the h1 with optional accent split */
@@ -37,7 +38,7 @@ export default function PageHero({
   }
 
   return (
-    <section className={`ph-hero ph-theme-${theme}`}>
+    <section className={`ph-hero ph-theme-${theme}${compact ? ' ph-hero-compact' : ''}`}>
       {/* ── Decorative background ── */}
       <div className="ph-bg" aria-hidden="true">
         <div className="ph-orb ph-orb-a" />
@@ -47,7 +48,7 @@ export default function PageHero({
       </div>
 
       {/* ── Content ── */}
-      <div className="container ph-inner">
+      <div className={`container ph-inner${compact ? ' ph-inner-compact' : ''}`}>
         <div className="ph-left">
           {eyebrow && (
             <span className="ph-eyebrow">

@@ -13,7 +13,7 @@ function getYoutubeVideoId(url) {
 export default function ImpactAndBlog() {
   const ref = useRef(null);
   const [blogPage, setBlogPage] = useState(0);
-  const postsPerPage = 4;
+  const postsPerPage = 3;
   const totalPages = Math.ceil(blogsData.featuredPosts.length / postsPerPage);
   const tutorialVideo = tutorialsData.videos[0];
   const testimonialVideo = testimonialsData.videos[0];
@@ -102,36 +102,44 @@ export default function ImpactAndBlog() {
         </div>
       </section>
 
-      <section id="blog" className="blog-section blog-section-refined home-blogs-section" aria-labelledby="blog-heading">
+      <section id="blog" className="blogs-grid-section" aria-labelledby="blog-heading">
         <div className="container">
-          <div className="section-header left animate-on-scroll">
-            <span className="section-label">Blogs</span>
-            <h2 className="section-h2" id="blog-heading">Recent updates and practical insights</h2>
-            <p className="section-sub">Blog cards are pulled from the existing blog source and shown four at a time.</p>
+          <div className="blogs-section-head animate-on-scroll text-center" style={{textAlign: 'center', marginBottom: '40px'}}>
+            <span className="blogs-section-label">Blogs</span>
+            <h2 className="blogs-section-h2" id="blog-heading">Recent updates and practical insights</h2>
           </div>
 
-          <div className="home-blog-grid">
+          <div className="blog-posts-grid">
             {visiblePosts.map((post, index) => (
-              <article key={post.slug} className="blog-card animate-on-scroll home-blog-card" style={{ animationDelay: `${index * 0.05}s` }}>
-                <div className="home-blog-image">
-                  <span>{post.category}</span>
-                </div>
-                <div className="blog-content">
-                  <p className="blog-date">{post.date} · {post.readTime}</p>
-                  <h3 className="blog-title">{post.title}</h3>
-                  <p className="blog-excerpt">{post.excerpt}</p>
-                  <Link href={`/resources/blogs/${post.slug}`} className="blog-read">Read More →</Link>
+              <article key={post.slug} className="blog-card blog-card-animated animate-on-scroll" style={{ animationDelay: `${index * 0.05}s` }}>
+                <div className="blog-card-inner">
+                  <div className="blog-card-top">
+                    <span className="blog-category-pill">
+                      <span className="blog-category-dot" style={{ backgroundColor: '#38bdf8' }}></span>
+                      {post.category}
+                    </span>
+                    <span className="blog-date-chip">{post.date}</span>
+                  </div>
+                  <h3 className="blog-card-title">{post.title}</h3>
+                  <p className="blog-card-excerpt">{post.excerpt}</p>
+                  <div className="blog-card-footer">
+                    <span className="blog-read-time">🕒 {post.readTime}</span>
+                    <Link href={`/resources/blogs/${post.slug}`} className="blog-read-link">Read More →</Link>
+                  </div>
                 </div>
               </article>
             ))}
           </div>
 
-          <div className="home-blog-dots animate-on-scroll" aria-label="Blog pagination">
+          <div className="home-blog-dots animate-on-scroll" aria-label="Blog pagination" style={{display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '40px'}}>
             {Array.from({ length: totalPages }).map((_, index) => (
               <button
                 key={index}
                 type="button"
-                className={`home-blog-dot${blogPage === index ? ' active' : ''}`}
+                style={{
+                  width: '12px', height: '12px', borderRadius: '50%', border: 'none', cursor: 'pointer', transition: 'all 0.3s',
+                  backgroundColor: blogPage === index ? '#0057A8' : '#dbeafe'
+                }}
                 onClick={() => setBlogPage(index)}
                 aria-label={`Show blog slide ${index + 1}`}
               />

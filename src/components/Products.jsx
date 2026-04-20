@@ -61,7 +61,6 @@ export default function Products() {
     <section id="products" className="products-section products-section-refined" ref={sectionRef} aria-labelledby="products-heading">
       <div className="container">
         <div className="section-header left animate-on-scroll products-section-header-refined">
-          <span className="section-label">Products</span>
           <h2 className="section-h2" id="products-heading">Software products built for real operational work</h2>
           <p className="section-sub">
             Explore all six product lines as a responsive card grid. Each card opens the related product page directly.
@@ -82,9 +81,6 @@ export default function Products() {
               </div>
               <h3 className="product-name">{item.label}</h3>
               <p className="product-desc">{item.summary ?? item.description}</p>
-              <div className="product-card-foot">
-                <span className="product-learn">Open page →</span>
-              </div>
             </Link>
           ))}
         </div>

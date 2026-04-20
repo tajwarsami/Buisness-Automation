@@ -108,7 +108,7 @@ export default function Testimonials() {
   return (
     <div className="resource-clean-page testi-page">
 
-      <PageHero title={hero.title} theme="amber" />
+      <PageHero title={hero.title} subtitle={hero.subtitle} theme="amber" compact />
 
       {/* ── Video Testimonials ── */}
       {videos && videos.length > 0 && (

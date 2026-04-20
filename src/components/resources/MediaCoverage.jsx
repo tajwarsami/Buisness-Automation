@@ -71,7 +71,7 @@ export default function MediaCoverage() {
   return (
     <div className="resource-clean-page media-page">
 
-      <PageHero title={hero.title} theme="violet" />
+      <PageHero title={hero.title} subtitle={hero.subtitle} theme="violet" compact />
 
 
       {/* ── Coverage Cards ── */}
