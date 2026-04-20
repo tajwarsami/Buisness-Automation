@@ -1,42 +1,31 @@
 export const smsSystemData = {
   slug: 'sms-system',
   hero: {
-    eyebrow: 'Products · Web SMS System',
-    title: 'Web SMS System',
-    subtitle:
-      'Transform your communication approach with a cost-effective bulk SMS platform built for customer engagement, updates, and conversion-focused outreach.',
-    badges: ['Instant communication', 'Cost-effective marketing', 'Bulk messaging at scale'],
+    title: 'Bulk SMS System',
+    subtitle: 'Reliable communication platform for mass messaging.',
     color: 'teal',
   },
   intro: {
-    heading: 'Instantaneous conversation, limitless opportunities',
+    label: 'Product Overview',
+    title: 'A mass messaging platform built for speed, reliability, and operational communication',
     paragraphs: [
-      'In a world where mobile phones dominate digital engagement, bulk SMS has become one of the easiest and most cost-effective marketing and service tools for businesses. It helps organizations stay competitive while building more personal communication with customers.',
-      'Automate IT Limited offers an efficient and user-friendly bulk SMS system that helps businesses notify customers about updates, promote new products, and maintain stronger relationships. Many clients already use it as part of their core operations to drive customer satisfaction and attract new business.',
+      'Bulk SMS System is designed for organizations that need a fast and dependable way to communicate with large audiences. Whether the goal is promotional outreach, urgent updates, customer reminders, or routine notice delivery, the platform helps teams manage communication from one organized source.',
+      'It combines speed, reach, and reporting visibility so businesses can use messaging as a practical part of their operations instead of an isolated tool. This makes the system especially useful for teams that value direct communication and scalable audience engagement.',
     ],
   },
-  modules: [
-    { icon: '🤝', name: 'Enhanced Customer Service', description: 'Keep customers informed quickly and improve service responsiveness through direct mobile communication.' },
-    { icon: '📈', name: 'Impressive Conversion Rates', description: 'Use targeted SMS campaigns as a high-value, low-cost channel for promoting offers and updates.' },
-    { icon: '🔔', name: 'Timely Updates', description: 'Notify customers immediately about business updates, new products, reminders, or service information.' },
-    { icon: '💰', name: 'Cost-Effective', description: 'Reach large audiences without the overhead of more expensive communication channels.' },
-    { icon: '💬', name: 'Customer Relationship Building', description: 'Stay connected with customers in a consistent and more personal way to improve loyalty.' },
-    { icon: '⚡', name: 'Competitive Edge', description: 'Move faster than competitors by communicating instantly in the channels people check most.' },
-  ],
-  benefits: [
-    { stat: 'Direct', label: 'Mobile Reach', description: 'Connect with customers where attention is highest: on their phones.' },
-    { stat: 'Fast', label: 'Business Updates', description: 'Promote products and deliver information to customers almost instantly.' },
-    { stat: 'Strong', label: 'Retention', description: 'Helps businesses maintain customer relationships through ongoing communication.' },
-    { stat: 'Smart', label: 'Marketing Spend', description: 'Bulk SMS remains one of the most practical and affordable marketing channels.' },
-  ],
-  useCases: [
-    'Businesses promoting products and offers through direct mobile campaigns.',
-    'Organizations sending reminders, alerts, and timely operational updates.',
-    'Customer service teams that need a faster way to stay connected with clients.',
-    'Brands looking for a simple and cost-effective communication tool with high reach.',
-  ],
-  cta: {
-    heading: 'Leverage a highly useful and cost-effective bulk SMS system',
-    text: 'Propel your business into the digital world with a messaging setup based on your audience, update frequency, and communication goals.',
+  topology: {
+    variant: 'broadcast',
+    centerLabel: 'SMS Engine',
+    nodes: ['Alerts', 'Campaigns', 'Reports', 'Coverage'],
   },
+  modules: [
+    { icon: 'broadcast', name: 'Bulk SMS Service', description: 'Bulk SMS Service allows organizations to send large-scale campaigns, alerts, reminders, and promotional messages quickly from one platform. It supports high-volume communication while keeping message delivery more organized and easier to monitor. Businesses can reach customers faster without relying on slower or more expensive outreach channels. This makes communication more efficient, scalable, and dependable for both marketing and operations.', connectionStyle: 'Broadcast Topology' },
+  ],
+  benefitCards: [
+    { title: 'Fast Delivery', description: 'Messages are sent quickly for urgent alerts and time-sensitive campaigns.' },
+    { title: 'Wide Coverage', description: 'Reach broad audiences across locations with a single communication workflow.' },
+    { title: 'Delivery Reports', description: 'Track sending status and communication outcomes with clear reporting visibility.' },
+    { title: 'Secure Messaging', description: 'Maintain dependable message handling for operational and promotional communication.' },
+    { title: 'Cost Effective', description: 'Scale outreach without the overhead of more expensive communication channels.' },
+  ],
 };

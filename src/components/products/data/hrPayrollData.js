@@ -1,41 +1,27 @@
 export const hrPayrollData = {
   slug: 'hr-payroll',
   hero: {
-    eyebrow: 'Products · HR and Payroll',
-    title: 'HR And Payroll Management',
-    subtitle:
-      'Manage and grow your workforce with a feature-rich HR and payroll platform built for record keeping, attendance, compliance, and salary processing.',
-    badges: ['Centralized employee database', 'Attendance to payroll', 'Compliance-friendly workflow'],
+    title: 'HR and Payroll System',
+    subtitle: 'Complete workforce management solution.',
     color: 'purple',
   },
   intro: {
-    heading: 'Effectively nurturing human capital with a complete HR and payroll solution',
+    label: 'Product Overview',
+    title: 'A workforce management platform for attendance, payroll, records, and staff performance',
     paragraphs: [
-      'Automate IT Limited offers a robust, user-friendly, and flexible Human Resource Management Software designed to streamline the recruitment, management, and direction of your workforce. It focuses on data management, record keeping, and in-depth analysis so your organization can operate with a smoother workflow.',
-      'The platform removes the need for scattered spreadsheets and disconnected documents by centralizing employee information in one secure database. HR managers can access the data they need quickly, improving efficiency, control, and confidence in workforce administration.',
+      'HR and Payroll System is built for organizations that want to centralize employee administration, attendance tracking, and salary processing inside one dependable workflow. By reducing reliance on manual files and disconnected spreadsheets, it helps teams work with greater consistency and less repetitive effort.',
+      'The platform supports stronger accuracy across payroll and record management while giving decision-makers a clearer view of workforce operations. This makes it valuable for companies that want better control, cleaner HR administration, and more confident payroll execution.',
     ],
   },
-  modules: [
-    { icon: '⏱️', name: 'Time Attendance System', description: 'Electronic attendance processing, overtime and undertime calculation, dynamic shift management, and online request and approval handling.' },
-    { icon: '💵', name: 'Payroll Management System', description: 'Timely and accurate salary calculation, wage calculation, late and early deduction handling, and salary sheet generation.' },
-    { icon: '🧑', name: 'Personal Information System HR', description: 'Supports streamlined HR operations, better employee data accuracy, and employee empowerment in managing their own information.' },
-    { icon: '📋', name: 'Staff Appraisal System', description: 'User-definable performance standards, performance ratings, automatic job posting, real-time application data, and automated job workflow support.' },
-    { icon: '🗃️', name: 'Employee Data Management', description: 'Centralized storage for employee profiles, attendance records, salary details, deductions, leave records, and related HR information.' },
-  ],
-  benefits: [
-    { stat: 'Less', label: 'Clerical Work', description: 'Reduces repetitive clerical effort and helps HR teams spend more time on meaningful workforce management.' },
-    { stat: 'More', label: 'Accuracy', description: 'Supports more accurate attendance and payroll processing while reducing manual calculation errors.' },
-    { stat: 'Better', label: 'Compliance', description: 'Precise time tracking helps organizations stay aligned with overtime and working-hour requirements.' },
-    { stat: 'One', label: 'Database', description: 'All employee data lives in one centralized and secure system instead of scattered files and spreadsheets.' },
-  ],
-  useCases: [
-    'Organizations that want to centralize employee records, attendance, and payroll processing.',
-    'Companies needing more accurate overtime, shift, and salary calculations.',
-    'HR teams replacing spreadsheets with a more reliable and searchable employee database.',
-    'Businesses looking to strengthen appraisal, recruitment, and workforce performance tracking.',
-  ],
-  cta: {
-    heading: 'Say goodbye to scattered HR data',
-    text: 'See how Dynamic HRM Software can streamline your employee administration and support stronger productivity and control.',
+  topology: {
+    variant: 'hybrid',
+    centerLabel: 'HR Hub',
+    nodes: ['Attendance', 'Payroll', 'Employee Records', 'Appraisal'],
   },
+  modules: [
+    { icon: 'attendance', name: 'Time Attendance System', description: 'Time Attendance System tracks employee attendance, shift timing, and daily working hours with better consistency and control. It helps organizations reduce manual errors in attendance handling while improving the accuracy of payroll inputs. HR teams can monitor attendance trends more easily and respond to irregularities faster. This creates a more dependable operational foundation for workforce management.', connectionStyle: 'Hybrid Topology' },
+    { icon: 'payroll', name: 'Payroll Management System', description: 'Payroll Management System automates salary calculation, deductions, payslip generation, and structured monthly payroll processing. It helps organizations save time while reducing mistakes that often happen with manual payroll workflows. Finance and HR teams can work with more confidence because payroll records remain consistent and easier to verify. This supports timely salary execution and stronger payroll accuracy across the company.', connectionStyle: 'Hybrid Topology' },
+    { icon: 'profile', name: 'Personal Information System (HR)', description: 'Personal Information System keeps employee profiles, records, and core HR data organized inside one secure and searchable platform. It reduces dependence on scattered files and spreadsheets by centralizing workforce information in a structured way. HR teams can access and update employee records more efficiently whenever decisions or documentation are required. This improves both administration quality and overall HR responsiveness.', connectionStyle: 'Hybrid Topology' },
+    { icon: 'appraisal', name: 'Staff Appraisal System', description: 'Staff Appraisal System supports performance review workflows, employee evaluation tracking, and better visibility into staff development. It helps management teams assess performance more consistently while keeping appraisal processes easier to manage over time. Review records stay organized, making follow-up actions and growth planning more practical. This encourages a stronger culture of accountability and continuous improvement across the workforce.', connectionStyle: 'Hybrid Topology' },
+  ],
 };

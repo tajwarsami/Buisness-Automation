@@ -1,42 +1,25 @@
 export const hospitalErpData = {
   slug: 'hospital-erp',
   hero: {
-    eyebrow: 'Products · Hospital ERP',
     title: 'Hospital Enterprise Resource Planning',
-    subtitle:
-      'Enter a new chapter in healthcare management history with an integrated hospital ERP that enhances efficiency, transparency, and service delivery.',
-    badges: ['Healthcare automation', 'Precise patient records', 'Billing transparency'],
+    subtitle: 'Integrated system to manage hospital operations efficiently.',
     color: 'green',
   },
   intro: {
-    heading: 'Dynamic Hospital ERP helps enhance healthcare functions through connected operations',
+    label: 'Product Overview',
+    title: 'A hospital platform that helps departments work in one coordinated operational flow',
     paragraphs: [
-      'Dynamic Hospital ERP is a comprehensive technological software solution made up of user-friendly modules that improve operational efficiency and reduce cost in healthcare institutions. It supports smooth communication between departments and improves both internal and external service delivery.',
-      'From patient records and appointment scheduling to prescriptions, financial accounting, patient billing, calendar management, and front desk management, the platform automates critical healthcare processes and provides full control over billing and accounting visibility.',
+      'Hospital ERP is designed for healthcare institutions that need stronger coordination between administration, communication, stock, and financial operations. Instead of relying on disconnected processes, the system brings key operational areas into one controlled environment so information can move more clearly across the organization.',
+      'This improves day-to-day efficiency, helps management monitor service delivery more effectively, and supports better financial and inventory visibility. The platform is especially useful for hospitals and clinics that want to reduce manual bottlenecks while improving overall operational discipline.',
     ],
   },
-  modules: [
-    { icon: '💼', name: 'Accounts Management', description: 'Streamlined record-keeping, invoice automation, expense management, budget control, robust financial reporting, tax compliance, and detailed audit trails.' },
-    { icon: '📦', name: 'Inventory Management', description: 'Product groups and categories, purchase and sales quotations, order management, stock transfer, stock journal, and purchase analysis for smarter supply chain control.' },
-    { icon: '📨', name: 'SMS Management', description: 'Bulk SMS communication for product updates, service information, professional communication, scheduling customized messages, and dependable 24x7 customer support.' },
-    { icon: '🗂️', name: 'Patient Record Management', description: 'Efficient storage and retrieval of important information related to doctors, patients, and employees across the institution.' },
-    { icon: '📅', name: 'Appointment & Calendar Management', description: 'Scheduling support for patient appointments, time planning, and operational coordination across service units.' },
-    { icon: '💳', name: 'Hospital Billing System', description: 'Integrated billing control that improves transparency, reduces manual work, and supports more accurate financial flow management.' },
-  ],
-  benefits: [
-    { stat: 'Full', label: 'Control', description: 'Provides stronger visibility and control over hospital billing and accounting processes.' },
-    { stat: 'Less', label: 'Manual Error', description: 'Automation reduces repetitive work and helps avoid common calculation mistakes.' },
-    { stat: 'Better', label: 'Department Flow', description: 'Creates smoother communication between departments for improved healthcare delivery.' },
-    { stat: 'More', label: 'Efficiency', description: 'Optimizes daily hospital operations to save time and improve productivity.' },
-  ],
-  useCases: [
-    'Hospitals that need stronger coordination between administration, accounts, and patient service departments.',
-    'Healthcare institutions wanting better billing transparency and more efficient record management.',
-    'Clinics and hospitals looking to automate accounting, stock, and communication processes.',
-    'Organizations aiming to modernize front desk, scheduling, and healthcare workflow visibility.',
-  ],
-  cta: {
-    heading: 'Discover how Dynamic Hospital ERP can revolutionize your institution',
-    text: 'See how the system can improve efficiency, productivity, and day-to-day healthcare operations with a workflow-focused demo.',
+  topology: {
+    variant: 'bus',
+    nodes: ['Accounts', 'Patients', 'Inventory', 'SMS Alerts'],
   },
+  modules: [
+    { icon: 'accounting', name: 'Accounts Management', description: 'Accounts Management supports hospital billing, payments, record keeping, and financial oversight through a more structured workflow. It helps finance teams reduce manual handling while improving clarity across everyday income and expense activity. Reports remain easier to review because transactions stay connected inside one organized system. This gives hospital management stronger control over operational finances and billing transparency.', connectionStyle: 'Bus Topology' },
+    { icon: 'sms', name: 'SMS Management', description: 'SMS Management helps hospitals send appointment reminders, follow-up notices, and patient notifications quickly and consistently. It improves communication flow between the institution and patients without relying on time-consuming manual outreach. Timely updates can reduce missed appointments and support a more dependable service experience. This strengthens patient engagement and improves coordination around hospital operations.', connectionStyle: 'Bus Topology' },
+    { icon: 'inventory', name: 'Inventory Management', description: 'Inventory Management gives hospitals better visibility into medicines, equipment, supplies, and stock movement across departments. It helps reduce waste and shortages by keeping stock levels more organized and easier to monitor. Staff can make better purchasing and replenishment decisions when current inventory data stays accurate and accessible. This supports smoother clinical and administrative operations throughout the hospital.', connectionStyle: 'Bus Topology' },
+  ],
 };
