@@ -82,15 +82,19 @@ export default function Footer() {
               </li>
               <li>
                 <span className="dn-fc-icon">📞</span>
-                <span>+977-1-4444444<br />+977-9800000000</span>
+                <span>09678-221323</span>
               </li>
               <li>
                 <span className="dn-fc-icon">✉</span>
-                <span>info@automateit.com.np<br />support@automateit.com.np</span>
+                <span>
+                    <a href="mailto:info@automate.com.bd" style={{color:'inherit'}}>info@automate.com.bd</a>
+                    <br />
+                    <a href="https://automate.com.bd" target="_blank" rel="noopener noreferrer" style={{color:'inherit'}}>automate.com.bd</a>
+                  </span>
               </li>
               <li>
                 <span className="dn-fc-icon">🕐</span>
-                <span>Sun - Fri: 9:00 AM - 6:00 PM</span>
+                <span>Sat - Thu: 9:00 AM - 6:00 PM</span>
               </li>
             </ul>
           </div>

@@ -32,7 +32,7 @@ export default function ImpactAndBlog() {
       });
     }, { threshold: 0.1 });
 
-    ref.current?.querySelectorAll('.animate-on-scroll').forEach((element) => observer.observe(element));
+    ref.current?.querySelectorAll('.animate-on-scroll, .animate-slide-left, .animate-slide-right').forEach((element) => observer.observe(element));
     return () => observer.disconnect();
   }, []);
 
@@ -41,7 +41,7 @@ export default function ImpactAndBlog() {
       <section id="tutorial-center" className="impact-section impact-section-refined home-media-section" aria-labelledby="tutorial-center-heading">
         <div className="container">
           <div className="home-media-grid">
-            <div className="home-media-copy animate-on-scroll">
+            <div className="home-media-copy animate-slide-left">
               <span className="section-label">Product Tutorial Center</span>
               <h2 className="section-h2" id="tutorial-center-heading">Product Tutorial Center</h2>
               <p className="section-sub">
@@ -50,7 +50,7 @@ export default function ImpactAndBlog() {
               <Link href="/tutorial" className="btn-secondary">Watch Now →</Link>
             </div>
 
-            <a className="home-video-preview animate-on-scroll" href={tutorialVideo.youtubeUrl} target="_blank" rel="noreferrer">
+            <a className="home-video-preview animate-slide-right" href={tutorialVideo.youtubeUrl} target="_blank" rel="noreferrer">
               <div className="home-video-thumb">
                 <Image
                   src={`https://img.youtube.com/vi/${getYoutubeVideoId(tutorialVideo.youtubeUrl)}/hqdefault.jpg`}
@@ -73,7 +73,7 @@ export default function ImpactAndBlog() {
       <section id="testimonials" className="impact-section impact-section-refined home-media-section home-media-section-alt" aria-labelledby="testimonials-heading">
         <div className="container">
           <div className="home-media-grid">
-            <div className="home-media-copy animate-on-scroll">
+            <div className="home-media-copy animate-slide-right">
               <span className="section-label">Customer Testimonials</span>
               <h2 className="section-h2" id="testimonials-heading">Customer Testimonials</h2>
               <p className="section-sub">
@@ -82,7 +82,7 @@ export default function ImpactAndBlog() {
               <Link href="/testimonials" className="btn-secondary">Watch Now →</Link>
             </div>
 
-            <a className="home-video-preview animate-on-scroll" href={testimonialVideo.youtubeUrl} target="_blank" rel="noreferrer">
+            <a className="home-video-preview animate-slide-left" href={testimonialVideo.youtubeUrl} target="_blank" rel="noreferrer">
               <div className="home-video-thumb">
                 <Image
                   src={`https://img.youtube.com/vi/${getYoutubeVideoId(testimonialVideo.youtubeUrl)}/hqdefault.jpg`}

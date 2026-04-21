@@ -25,7 +25,6 @@ export default function AccountPageClient() {
   return (
     <>
       <PageHero
-        eyebrow="Account Management"
         title="Your Account"
         subtitle="Manage your Automate IT Limited account settings. Use the options below to update your preferences or permanently delete your account."
         theme="rose"

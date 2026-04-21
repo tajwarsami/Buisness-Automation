@@ -10,9 +10,10 @@ const JOBS = [
 const INFO = [
   { label: 'Headquarters', value: 'B&S Complex, 2nd Floor, Sankhamul Road,\nNew Baneshwor, Dhaka, Bangladesh', icon: 'pin' },
   { label: 'Branch Offices', value: 'Dhaka · Pokhara · Dhaka · Dhangadhi · Biratnagar', icon: 'pin' },
-  { label: 'Phone', value: '+977-9851163652 | +977-9801050626\nHotline: +977-9855021231', icon: 'phone' },
-  { label: 'Email', value: 'info@dynamic.net.np', icon: 'mail', isLink: true },
-  { label: 'Office Hours', value: 'Sunday–Friday, 9:00 AM – 6:00 PM (Bangladesh Time)', icon: 'clock' },
+  { label: 'Phone', value: '09678-221323', icon: 'phone' },
+  { label: 'Email', value: 'info@automate.com.bd', icon: 'mail', isLink: true },
+  { label: 'Website', value: 'automate.com.bd', icon: 'mail', isLink: false, isWebsite: true },
+  { label: 'Office Hours', value: 'Saturday–Thursday, 9:00 AM – 6:00 PM (Bangladesh Time)', icon: 'clock' },
 ];
 
 const PinIcon = () => <svg width="20" height="20" fill="none" stroke="#0057A8" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>;
@@ -83,7 +84,7 @@ export default function CareersAndContact() {
               </div>
             ))}
           </div>
-          <p className="careers-note">Don&apos;t see your role? <a href="mailto:info@dynamic.net.np">Send us your CV →</a></p>
+          <p className="careers-note">Don&apos;t see your role? <a href="mailto:info@automate.com.bd">Send us your CV →</a></p>
         </div>
       </section>
 
@@ -106,6 +107,8 @@ export default function CareersAndContact() {
                     <span className="info-label">{item.label}</span>
                     {item.isLink
                       ? <span className="info-value"><a href={`mailto:${item.value}`} style={{color:'var(--primary)'}}>{item.value}</a></span>
+                      : item.isWebsite
+                      ? <span className="info-value"><a href={`https://${item.value}`} target="_blank" rel="noopener noreferrer" style={{color:'var(--primary)'}}>{item.value}</a></span>
                       : <span className="info-value" style={{whiteSpace:'pre-line'}}>{item.value}</span>
                     }
                   </div>

@@ -28,33 +28,21 @@ export const CLIENTS = [
   { name: 'Sunrise Group', abbr: 'SRG', color: '#E8431A' },
 ];
 
-const STATS = [
-  { number: '2,500+', label: 'Happy Clients' },
-  { number: '15+', label: 'Years of Trust' },
-  { number: '50+', label: 'Authorized Dealers' },
-  { number: '10+', label: 'Industry Sectors' },
-];
+
 
 export default function OurClientPageClient() {
   return (
     <>
       <PageHero
-        eyebrow="Trusted Partnerships"
         title="Our Clients"
-        subtitle="Our client's enthusiasm for innovation and dedication to quality are at the core of their purpose. Their unwavering commitment to ensuring customer satisfaction makes them a shining example of excellence."
-        badges={['2,500+ Organizations', '15+ Years', '10+ Sectors']}
-        stats={STATS}
+        subtitle="From government institutions to private enterprises, schools, hospitals, and industry giants — we are proud to serve Bangladesh's most trusted organizations."
         theme="navy"
       />
 
       <section className="ocl-clients-section">
         <div className="container">
           <div className="ocl-section-head">
-            <span className="ocl-eyebrow">Who We Work With</span>
             <h2 className="ocl-heading">Meet Our Clients</h2>
-            <p className="ocl-subtext">
-              From government institutions to private enterprises, schools, hospitals, and industry giants — we are proud to serve Bangladesh&apos;s most trusted organizations.
-            </p>
           </div>
           <div className="ocl-grid">
             {CLIENTS.map((client) => (
