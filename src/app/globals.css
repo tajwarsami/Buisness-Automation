@@ -716,14 +716,14 @@ textarea {
   grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 0;
   padding-bottom: 0;
   position: relative;
   z-index: 1;
 }
 
 .hero-blue-left {
-  padding: 64px 0;
+  padding: 24px 0 32px;
   animation: slideInLeft 0.7s ease both;
 }
 
@@ -12336,15 +12336,30 @@ textarea {
   font-weight: 800;
 }
 
-.animate-on-scroll {
+.animate-on-scroll,
+.animate-slide-left,
+.animate-slide-right {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.animate-on-scroll.is-visible {
+.animate-on-scroll {
+  transform: translateY(24px);
+}
+
+.animate-slide-left {
+  transform: translateX(-40px);
+}
+
+.animate-slide-right {
+  transform: translateX(40px);
+}
+
+.animate-on-scroll.is-visible,
+.animate-slide-left.is-visible,
+.animate-slide-right.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(0, 0);
 }
 
 @keyframes svcVisualRise {

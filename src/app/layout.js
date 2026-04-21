@@ -1,5 +1,4 @@
 import '@/app/globals.css';
-import '@/app/services-redesign.css';
 import ClientShell from '@/components/ClientShell';
 
 export const metadata = {
